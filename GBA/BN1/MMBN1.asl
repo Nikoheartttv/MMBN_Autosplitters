@@ -54,16 +54,16 @@ startup
     });
 
 	// this doesn't current work, but works as normal splitting function
-	// vars.CheckCompleted = (Func<bool>)(() =>
-	// {
-	// 	if (vars.Helper == null || vars.Helper["FinalScene"] == null || vars.Helper["FinalDing"] == null) return false;
-	// 	if (vars.Helper["FinalDing"].Changed && vars.Helper["FinalDing"].Current == 128)
-	// 		{
-	// 			return true;
-	// 		} 
+	vars.CheckCompleted = (Func<bool>)(() =>
+	{
+		if (vars.Helper == null || vars.Helper["FinalScene"] == null || vars.Helper["FinalDing"] == null) return false;
+        if (vars.Helper["FinalScene"].Current == 64 && vars.Helper["FinalDing"].Changed && vars.Helper["FinalDing"].Current == 128)
+        {
+            return true;
+        }
 
-	// 	return false;
-	// });
+		return false;
+	});
 
     // End function definitions
 
@@ -256,8 +256,6 @@ split
 			}
 		}
 	}
-	if (vars.Helper["FinalScene"].Current == 64 && vars.Helper["FinalDing"].Changed && vars.Helper["FinalDing"].Current == 128)
-	{
-		return true;
-	}
+
+    if (vars.CheckCompleted()) return true;
 }
