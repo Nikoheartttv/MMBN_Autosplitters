@@ -1,64 +1,62 @@
 <settings>
     <setting id="BN1" name="Megaman Battle Network 1">
-        <setting id="BN1SF" name="Final Split" defaultValue="true">
-            <setting id="BN1SF_LifeVirusSplit" name="Life Virus Kill + End Split" defaultValue="true" />
-            <setting id="BN1SF_NoLifeVirusSplit" name="Skip Life Virus + End Split" />
-        </setting>
         <setting id="BN1SM" name="Main Splits" defaultValue="true">
             <setting id="BN1SM_FireMan" name="FireMan" defaultValue="true" check="BossDefeated" value="105" />
             <setting id="BN1SM_NumberMan" name="NumberMan" defaultValue="true" check="BossDefeated" value="108" />
             <setting id="BN1SM_GutsMan" name="GutsMan" defaultValue="true" check="BossDefeated" value="96" />
             <setting id="BN1SM_StoneMan" name="StoneMan" defaultValue="true" check="BossDefeated" value="111" />
-            <setting id="BN1SM_ColdBear" name="ColdBear" defaultValue="true" check="BossDefeated" value="41" />
+            <!-- <setting id="BN1SM_ColdBear" name="ColdBear" defaultValue="true" check="BossDefeated" value="41" /> -->
+            <setting id="BN1SM_ColdBear" name="ColdBear" defaultValue="true" check="Progress" value="38" />
             <setting id="BN1SM_IceMan" name="IceMan" defaultValue="true" check="BossDefeated" value="114"  />
             <setting id="BN1SM_SkullMan" name="SkullMan" defaultValue="true" check="BossDefeated" value="117" />
             <setting id="BN1SM_ColorMan" name="ColorMan" defaultValue="true" check="BossDefeated" value="120" />
             <setting id="BN1SM_ElecMan" name="ElecMan" defaultValue="true" check="BossDefeated" value="129" />
             <setting id="BN1SM_ProtoMan" name="ProtoMan" defaultValue="true" check="BossDefeated" value="99" />
-            <setting id="BN1SM_Memos" name="Memos" defaultValue="true" />
+            <setting id="BN1SM_Memos" name="Memos" defaultValue="true" check="Memos" value="" />
             <setting id="BN1SM_BombMan" name="BombMan" defaultValue="true" check="BossDefeated" value="123" />
             <setting id="BN1SM_MagicMan" name="MagicMan" defaultValue="true" check="BossDefeated" value="141" />
             <setting id="BN1SM_LifeVirus" name="LifeVirus" defaultValue="true" check="BossDefeated" value="141" />
+            <setting id="BN1SM_Ding" name="Ding" defaultValue="true" check="Completed" />
         </setting>
         <setting id="BN1SMB" name="Mini-Bosses" defaultValue="true">
             <setting id="BN1SM_Floshell" name="Floshell Mini-Boss" defaultValue="true" check="MiniBossDefeated" value="24" />
         </setting>
             <setting id="BN1SO" name="Optional Bosses">
-            <setting id="BN1SO_GutsManV2" name="GutsManV2" check="OptionalBossDefeated" value="97" />
-            <setting id="BN1SO_GutsManV3" name="GutsManV3" check="OptionalBossDefeated" value="98" />
-            <setting id="BN1SO_ProtoManV2" name="ProtoManV2" check="OptionalBossDefeated" value="100" />
-            <setting id="BN1SO_ProtoManV3" name="ProtoManV3" check="OptionalBossDefeated" value="101" />
-            <setting id="BN1SO_WoodMan" name="WoodMan" check="OptionalBossDefeated" value="102" />
-            <setting id="BN1SO_WoodManV2" name="WoodManV2" check="OptionalBossDefeated" value="103" />
-            <setting id="BN1SO_WoodManV3" name="WoodManV3" check="OptionalBossDefeated" value="104" />
-            <setting id="BN1SO_FireManV2" name="FireManV2" check="OptionalBossDefeated" value="106" />
-            <setting id="BN1SO_FireManV3" name="FireManV3" check="OptionalBossDefeated" value="107" />
-            <setting id="BN1SO_NumberManV2" name="NumberManV2" check="OptionalBossDefeated" value="109" />
-            <setting id="BN1SO_NumberManV3" name="NumberManV3" check="OptionalBossDefeated" value="110" />
-            <setting id="BN1SO_StoneManV2" name="StoneManV2" check="OptionalBossDefeated" value="112" />
-            <setting id="BN1SO_StoneManV3" name="StoneManV3" check="OptionalBossDefeated" value="113" />
-            <setting id="BN1SO_IceManV2" name="IceManV2" check="OptionalBossDefeated" value="115" />
-            <setting id="BN1SO_IceManV3" name="IceManV3" check="OptionalBossDefeated" value="116" />
-            <setting id="BN1SO_SkullManV2" name="SkullManV2" check="OptionalBossDefeated" value="118" />
-            <setting id="BN1SO_SkullManV3" name="SkullManV3" check="OptionalBossDefeated" value="119" />
-            <setting id="BN1SO_ColorManV2" name="ColorManV2" check="OptionalBossDefeated" value="121" />
-            <setting id="BN1SO_ColorManV3" name="ColorManV3" check="OptionalBossDefeated" value="122" />
-            <setting id="BN1SO_BombManV2" name="BombManV2" check="OptionalBossDefeated" value="124" />
-            <setting id="BN1SO_BombManV3" name="BombManV3" check="OptionalBossDefeated" value="125" />
-            <setting id="BN1SO_SharkMan" name="SharkMan" check="OptionalBossDefeated" value="126" />
-            <setting id="BN1SO_SharkManV2" name="SharkManV2" check="OptionalBossDefeated" value="127" />
-            <setting id="BN1SO_SharkManV3" name="SharkManV3" check="OptionalBossDefeated" value="128" />
-            <setting id="BN1SO_ElecManV2" name="ElecManV2" check="OptionalBossDefeated" value="130" />
-            <setting id="BN1SO_ElecManV3" name="ElecManV3" check="OptionalBossDefeated" value="131" />
-            <setting id="BN1SO_PharaohMan" name="PharaohMan" check="OptionalBossDefeated" value="132" />
-            <setting id="BN1SO_PharaohManV2" name="PharaohManV2" check="OptionalBossDefeated" value="133" />
-            <setting id="BN1SO_PharaohManV3" name="PharaohManV3" check="OptionalBossDefeated" value="134" />
-            <setting id="BN1SO_ShadowMan" name="ShadowMan" check="OptionalBossDefeated" value="135"  />
-            <setting id="BN1SO_ShadowManV2" name="ShadowManV2" check="OptionalBossDefeated" value="136" />
-            <setting id="BN1SO_ShadowManV3" name="ShadowManV3" check="OptionalBossDefeated" value="137" />
-            <setting id="BN1SO_MagicManV2" name="MagicManV2" check="OptionalBossDefeated" value="142" />
-            <setting id="BN1SO_MagicManV3" name="MagicManV3" check="OptionalBossDefeated" value="143" />
-            <setting id="BN1SO_Bass" name="Bass" check="OptionalBossDefeated" value="144" />
+            <setting id="BN1SO_GutsManV2" name="GutsManV2" check="BossDefeated" value="97" />
+            <setting id="BN1SO_GutsManV3" name="GutsManV3" check="BossDefeated" value="98" />
+            <setting id="BN1SO_ProtoManV2" name="ProtoManV2" check="BossDefeated" value="100" />
+            <setting id="BN1SO_ProtoManV3" name="ProtoManV3" check="BossDefeated" value="101" />
+            <setting id="BN1SO_WoodMan" name="WoodMan" check="BossDefeated" value="102" />
+            <setting id="BN1SO_WoodManV2" name="WoodManV2" check="BossDefeated" value="103" />
+            <setting id="BN1SO_WoodManV3" name="WoodManV3" check="BossDefeated" value="104" />
+            <setting id="BN1SO_FireManV2" name="FireManV2" check="BossDefeated" value="106" />
+            <setting id="BN1SO_FireManV3" name="FireManV3" check="BossDefeated" value="107" />
+            <setting id="BN1SO_NumberManV2" name="NumberManV2" check="BossDefeated" value="109" />
+            <setting id="BN1SO_NumberManV3" name="NumberManV3" check="BossDefeated" value="110" />
+            <setting id="BN1SO_StoneManV2" name="StoneManV2" check="BossDefeated" value="112" />
+            <setting id="BN1SO_StoneManV3" name="StoneManV3" check="BossDefeated" value="113" />
+            <setting id="BN1SO_IceManV2" name="IceManV2" check="BossDefeated" value="115" />
+            <setting id="BN1SO_IceManV3" name="IceManV3" check="BossDefeated" value="116" />
+            <setting id="BN1SO_SkullManV2" name="SkullManV2" check="BossDefeated" value="118" />
+            <setting id="BN1SO_SkullManV3" name="SkullManV3" check="BossDefeated" value="119" />
+            <setting id="BN1SO_ColorManV2" name="ColorManV2" check="BossDefeated" value="121" />
+            <setting id="BN1SO_ColorManV3" name="ColorManV3" check="BossDefeated" value="122" />
+            <setting id="BN1SO_BombManV2" name="BombManV2" check="BossDefeated" value="124" />
+            <setting id="BN1SO_BombManV3" name="BombManV3" check="BossDefeated" value="125" />
+            <setting id="BN1SO_SharkMan" name="SharkMan" check="BossDefeated" value="126" />
+            <setting id="BN1SO_SharkManV2" name="SharkManV2" check="BossDefeated" value="127" />
+            <setting id="BN1SO_SharkManV3" name="SharkManV3" check="BossDefeated" value="128" />
+            <setting id="BN1SO_ElecManV2" name="ElecManV2" check="BossDefeated" value="130" />
+            <setting id="BN1SO_ElecManV3" name="ElecManV3" check="BossDefeated" value="131" />
+            <setting id="BN1SO_PharaohMan" name="PharaohMan" check="BossDefeated" value="132" />
+            <setting id="BN1SO_PharaohManV2" name="PharaohManV2" check="BossDefeated" value="133" />
+            <setting id="BN1SO_PharaohManV3" name="PharaohManV3" check="BossDefeated" value="134" />
+            <setting id="BN1SO_ShadowMan" name="ShadowMan" check="BossDefeated" value="135"  />
+            <setting id="BN1SO_ShadowManV2" name="ShadowManV2" check="BossDefeated" value="136" />
+            <setting id="BN1SO_ShadowManV3" name="ShadowManV3" check="BossDefeated" value="137" />
+            <setting id="BN1SO_MagicManV2" name="MagicManV2" check="BossDefeated" value="142" />
+            <setting id="BN1SO_MagicManV3" name="MagicManV3" check="BossDefeated" value="143" />
+            <setting id="BN1SO_Bass" name="Bass" check="BossDefeated" value="144" />
         </setting>
     </setting>
     <setting id="BN2" name="Megaman Battle Network 2">
@@ -90,47 +88,47 @@
             <setting id="BN2SA_GospelSplit" name="Gospel" />
         </setting>
         <setting id="BN2SO" name="Optional Bosses">
-            <setting id="BN2SO_AirManV2" name="AirManV2" check="OptionalBossDefeated" value="129" />
-            <setting id="BN2SO_AirManV3" name="AirManV3" check="OptionalBossDefeated" value="130" />
-            <setting id="BN2SO_QuickManV2" name="QuickManV2" check="OptionalBossDefeated" value="132" />
-            <setting id="BN2SO_QuickManV3" name="QuickManV3" check="OptionalBossDefeated" value="133" />
-            <setting id="BN2SO_CutManV2" name="CutManV2" check="OptionalBossDefeated" value="135" />
-            <setting id="BN2SO_CutManV3" name="CutManV3" check="OptionalBossDefeated" value="136"  />
-            <setting id="BN2SO_ShadowManV2" name="ShadowManV2" check="OptionalBossDefeated" value="138" />
-            <setting id="BN2SO_ShadowManV3" name="ShadowManV3" check="OptionalBossDefeated" value="139" />
-            <setting id="BN2SO_KnightManV2" name="KnightManV2" check="OptionalBossDefeated" value="141" />
-            <setting id="BN2SO_KnightManV3" name="KnightManV3" check="OptionalBossDefeated" value="142" />
-            <setting id="BN2SO_MagnetManV2" name="MagnetManV2" check="OptionalBossDefeated" value="144" />
-            <setting id="BN2SO_MagnetManV3" name="MagnetManV3" check="OptionalBossDefeated" value="145" />
-            <setting id="BN2SO_FreezeManV2" name="FreezeManV2" check="OptionalBossDefeated" value="147" />
-            <setting id="BN2SO_FreezeManV3" name="FreezeManV3" check="OptionalBossDefeated" value="148" />
-            <setting id="BN2SO_HeatMan" name="HeatMan" check="OptionalBossDefeated" value="152" />
-            <setting id="BN2SO_HeatManV2" name="HeatManV2" check="OptionalBossDefeated" value="153" />
-            <setting id="BN2SO_HeatManV3" name="HeatManV3" check="OptionalBossDefeated" value="154" />
-            <setting id="BN2SO_ToadMan" name="ToadMan" check="OptionalBossDefeated" value="155" />
-            <setting id="BN2SO_ToadManV2" name="ToadManV2" check="OptionalBossDefeated" value="156" />
-            <setting id="BN2SO_ToadManV3" name="ToadManV3" check="OptionalBossDefeated" value="157" />
-            <setting id="BN2SO_ThunderManV2" name="ThunderManV2" check="OptionalBossDefeated" value="159" />
-            <setting id="BN2SO_ThunderManV3" name="ThunderManV3" check="OptionalBossDefeated" value="160"  />
-            <setting id="BN2SO_SnakeManV2" name="SnakeManV2" check="OptionalBossDefeated" value="162" />
-            <setting id="BN2SO_SnakeManV3" name="SnakeManV3" check="OptionalBossDefeated" value="163" />
-            <setting id="BN2SO_GutsManV2" name="GutsManV2" check="OptionalBossDefeated" value="165" />
-            <setting id="BN2SO_GutsManV3" name="GutsManV3" check="OptionalBossDefeated" value="166" />
-            <setting id="BN2SO_ProtoManV2" name="ProtoManV2" check="OptionalBossDefeated" value="168" />
-            <setting id="BN2SO_ProtoManV3" name="ProtoManV3" check="OptionalBossDefeated" value="169" />
-            <setting id="BN2SO_GateMan" name="GateMan" check="OptionalBossDefeated" value="170" />
-            <setting id="BN2SO_GateManV2" name="GateManV2" check="OptionalBossDefeated" value="171" />
-            <setting id="BN2SO_GateManV3" name="GateManV3" check="OptionalBossDefeated" value="172" />
-            <setting id="BN2SO_PlanetMan" name="PlanetMan" check="OptionalBossDefeated" value="173" />
-            <setting id="BN2SO_PlanetManV2" name="PlanetManV2" check="OptionalBossDefeated" value="174" />
-            <setting id="BN2SO_PlanetManV3" name="PlanetManV3" check="OptionalBossDefeated" value="175" />
-            <setting id="BN2SO_NapalmMan" name="NapalmMan" check="OptionalBossDefeated" value="176" />
-            <setting id="BN2SO_NapalmManV2" name="NapalmManV2" check="OptionalBossDefeated" value="177" />
-            <setting id="BN2SO_NapalmManV3" name="NapalmManV3" check="OptionalBossDefeated" value="178" />
-            <setting id="BN2SO_PharaohMan" name="PharaohMan" check="OptionalBossDefeated" value="179" />
-            <setting id="BN2SO_PharaohManV2" name="PharaohManV2" check="OptionalBossDefeated" value="180" />
-            <setting id="BN2SO_PharaohManV3" name="PharaohManV3" check="OptionalBossDefeated" value="181" />
-            <setting id="BN2SO_BassDeluxe" name="Bass Deluxe" check="OptionalBossDefeated" value="184" />
+            <setting id="BN2SO_AirManV2" name="AirManV2" check="BossDefeated" value="129" />
+            <setting id="BN2SO_AirManV3" name="AirManV3" check="BossDefeated" value="130" />
+            <setting id="BN2SO_QuickManV2" name="QuickManV2" check="BossDefeated" value="132" />
+            <setting id="BN2SO_QuickManV3" name="QuickManV3" check="BossDefeated" value="133" />
+            <setting id="BN2SO_CutManV2" name="CutManV2" check="BossDefeated" value="135" />
+            <setting id="BN2SO_CutManV3" name="CutManV3" check="BossDefeated" value="136"  />
+            <setting id="BN2SO_ShadowManV2" name="ShadowManV2" check="BossDefeated" value="138" />
+            <setting id="BN2SO_ShadowManV3" name="ShadowManV3" check="BossDefeated" value="139" />
+            <setting id="BN2SO_KnightManV2" name="KnightManV2" check="BossDefeated" value="141" />
+            <setting id="BN2SO_KnightManV3" name="KnightManV3" check="BossDefeated" value="142" />
+            <setting id="BN2SO_MagnetManV2" name="MagnetManV2" check="BossDefeated" value="144" />
+            <setting id="BN2SO_MagnetManV3" name="MagnetManV3" check="BossDefeated" value="145" />
+            <setting id="BN2SO_FreezeManV2" name="FreezeManV2" check="BossDefeated" value="147" />
+            <setting id="BN2SO_FreezeManV3" name="FreezeManV3" check="BossDefeated" value="148" />
+            <setting id="BN2SO_HeatMan" name="HeatMan" check="BossDefeated" value="152" />
+            <setting id="BN2SO_HeatManV2" name="HeatManV2" check="BossDefeated" value="153" />
+            <setting id="BN2SO_HeatManV3" name="HeatManV3" check="BossDefeated" value="154" />
+            <setting id="BN2SO_ToadMan" name="ToadMan" check="BossDefeated" value="155" />
+            <setting id="BN2SO_ToadManV2" name="ToadManV2" check="BossDefeated" value="156" />
+            <setting id="BN2SO_ToadManV3" name="ToadManV3" check="BossDefeated" value="157" />
+            <setting id="BN2SO_ThunderManV2" name="ThunderManV2" check="BossDefeated" value="159" />
+            <setting id="BN2SO_ThunderManV3" name="ThunderManV3" check="BossDefeated" value="160"  />
+            <setting id="BN2SO_SnakeManV2" name="SnakeManV2" check="BossDefeated" value="162" />
+            <setting id="BN2SO_SnakeManV3" name="SnakeManV3" check="BossDefeated" value="163" />
+            <setting id="BN2SO_GutsManV2" name="GutsManV2" check="BossDefeated" value="165" />
+            <setting id="BN2SO_GutsManV3" name="GutsManV3" check="BossDefeated" value="166" />
+            <setting id="BN2SO_ProtoManV2" name="ProtoManV2" check="BossDefeated" value="168" />
+            <setting id="BN2SO_ProtoManV3" name="ProtoManV3" check="BossDefeated" value="169" />
+            <setting id="BN2SO_GateMan" name="GateMan" check="BossDefeated" value="170" />
+            <setting id="BN2SO_GateManV2" name="GateManV2" check="BossDefeated" value="171" />
+            <setting id="BN2SO_GateManV3" name="GateManV3" check="BossDefeated" value="172" />
+            <setting id="BN2SO_PlanetMan" name="PlanetMan" check="BossDefeated" value="173" />
+            <setting id="BN2SO_PlanetManV2" name="PlanetManV2" check="BossDefeated" value="174" />
+            <setting id="BN2SO_PlanetManV3" name="PlanetManV3" check="BossDefeated" value="175" />
+            <setting id="BN2SO_NapalmMan" name="NapalmMan" check="BossDefeated" value="176" />
+            <setting id="BN2SO_NapalmManV2" name="NapalmManV2" check="BossDefeated" value="177" />
+            <setting id="BN2SO_NapalmManV3" name="NapalmManV3" check="BossDefeated" value="178" />
+            <setting id="BN2SO_PharaohMan" name="PharaohMan" check="BossDefeated" value="179" />
+            <setting id="BN2SO_PharaohManV2" name="PharaohManV2" check="BossDefeated" value="180" />
+            <setting id="BN2SO_PharaohManV3" name="PharaohManV3" check="BossDefeated" value="181" />
+            <setting id="BN2SO_BassDeluxe" name="Bass Deluxe" check="BossDefeated" value="184" />
         </setting>
     </setting>
     <setting id="BN3B" name="Megaman Battle Network 3 Blue">
@@ -158,71 +156,71 @@
             <setting id="BN3BSA_YoyoG" name="Yo-Yo G Chip Get" check="BattleRewardGet" />
         </setting>
         <setting id="BN3BSO" name="Optional Bosses">
-            <setting id="BN3BSO_FlashManAlpha" name="FlashMan Alpha / V2" check="OptionalBossDefeated" value="169" />
-            <setting id="BN3BSO_FlashManBeta" name="FlashMan Beta / V3" check="OptionalBossDefeated" value="170" />
-            <setting id="BN3BSO_FlashManOmega" name="FlashMan Omega / SP" check="OptionalBossDefeated" value="171" />
-            <setting id="BN3BSO_BeastManAlpha" name="BeastMan Alpha / V2" check="OptionalBossDefeated" value="173" />
-            <setting id="BN3BSO_BeastManBeta" name="BeastMan Beta / V3" check="OptionalBossDefeated" value="174" />
-            <setting id="BN3BSO_BeastManOmega" name="BeastMan Omega / SP" check="OptionalBossDefeated" value="175" />
-            <setting id="BN3BSO_BubbleManBeta" name="BubbleMan Beta / V3" check="OptionalBossDefeated" value="178" />
-            <setting id="BN3BSO_BubbleManOmega" name="BubbleMan Omega / SP" check="OptionalBossDefeated" value="179" />
-            <setting id="BN3BSO_DesertManAlpha" name="DesertMan Alpha / V2" check="OptionalBossDefeated" value="181" />
-            <setting id="BN3BSO_DesertManBeta" name="DesertMan Beta / V3" check="OptionalBossDefeated" value="182" />
-            <setting id="BN3BSO_DesertManOmega" name="DesertMan Omega / SP" check="OptionalBossDefeated" value="183" /> 
-            <setting id="BN3BSO_PlantManAlpha" name="PlantMan Alpha / V2" check="OptionalBossDefeated" value="185" /> 
-            <setting id="BN3BSO_PlantManBeta" name="PlantMan Beta / V3" check="OptionalBossDefeated" value="186" /> 
-            <setting id="BN3BSO_PlantManOmega" name="PlantMan Omega / SP" check="OptionalBossDefeated" value="187" /> 
-            <setting id="BN3BSO_FlamManAlpha" name="FlamMan Alpha / V2" check="OptionalBossDefeated" value="189" /> 
-            <setting id="BN3BSO_FlamManBeta" name="FlamMan Beta / V3" check="OptionalBossDefeated" value="190" /> 
-            <setting id="BN3BSO_FlamManOmega" name="FlamMan Omega / SP" check="OptionalBossDefeated" value="191" /> 
-            <setting id="BN3BSO_DrillManAlpha" name="DrillMan Alpha / V2" check="OptionalBossDefeated" value="193" /> 
-            <setting id="BN3BSO_DrillManBeta" name="DrillMan Beta / V3" check="OptionalBossDefeated" value="194" /> 
-            <setting id="BN3BSO_DrillManOmega" name="DrillMan Omega / SP" check="OptionalBossDefeated" value="195" /> 
-            <setting id="BN3BSO_Alpha" name="Alpha" check="OptionalBossDefeated" value="196" /> 
-            <setting id="BN3BSO_AlphaOmega" name="Alpha Omega" check="OptionalBossDefeated" value="197" /> 
-            <setting id="BN3BSO_GutsMan" name="GutsMan" check="OptionalBossDefeated" value="200" /> 
-            <setting id="BN3BSO_GutsManAlpha" name="GutsMan Alpha / V2" check="OptionalBossDefeated" value="201" /> 
-            <setting id="BN3BSO_GutsManBeta" name="GutsMan Beta / V3" check="OptionalBossDefeated" value="202" /> 
-            <setting id="BN3BSO_GutsManOmega" name="GutsMan Omega / SP" check="OptionalBossDefeated" value="203" /> 
-            <setting id="BN3BSO_ProtoMan" name="ProtoMan" check="OptionalBossDefeated" value="204" /> 
-            <setting id="BN3BSO_ProtoManAlpha" name="ProtoMan Alpha / V2" check="OptionalBossDefeated" value="205" /> 
-            <setting id="BN3BSO_ProtoManBeta" name="ProtoMan Beta / V3" check="OptionalBossDefeated" value="206" /> 
-            <setting id="BN3BSO_ProtoManOmega" name="ProtoMan Omega / SP" check="OptionalBossDefeated" value="207" /> 
-            <setting id="BN3BSO_MetalMan" name="MetalMan" check="OptionalBossDefeated" value="208" /> 
-            <setting id="BN3BSO_MetalManAlpha" name="MetalMan Alpha / V2" check="OptionalBossDefeated" value="209" /> 
-            <setting id="BN3BSO_MetalManBeta" name="MetalMan Beta / V3" check="OptionalBossDefeated" value="210" /> 
-            <setting id="BN3BSO_MetalManOmega" name="MetalMan Omega / SP" check="OptionalBossDefeated" value="211" /> 
-            <setting id="BN3BSO_Punk" name="Punk" check="OptionalBossDefeated" value="212" /> 
-            <setting id="BN3BSO_PunkAlpha" name="Punk Alpha / V2" check="OptionalBossDefeated" value="213" /> 
-            <setting id="BN3BSO_PunkBeta" name="Punk Beta / V3" check="OptionalBossDefeated" value="214" /> 
-            <setting id="BN3BSO_PunkOmega" name="Punk Omega / SP" check="OptionalBossDefeated" value="215" /> 
-            <setting id="BN3BSO_KingMan" name="KingMan" check="OptionalBossDefeated" value="216" /> 
-            <setting id="BN3BSO_KingManAlpha" name="KingMan Alpha / V2" check="OptionalBossDefeated" value="217" /> 
-            <setting id="BN3BSO_KingManBeta" name="KingMan Beta / V3" check="OptionalBossDefeated" value="218" /> 
-            <setting id="BN3BSO_KingManOmega" name="KingMan Omega / SP" check="OptionalBossDefeated" value="219" /> 
-            <setting id="BN3BSO_MistMan" name="MistMan" check="OptionalBossDefeated" value="220" /> 
-            <setting id="BN3BSO_MistManAlpha" name="MistMan Alpha / V2" check="OptionalBossDefeated" value="221" /> 
-            <setting id="BN3BSO_MistManBeta" name="MistMan Beta / V3" check="OptionalBossDefeated" value="222" /> 
-            <setting id="BN3BSO_MistManOmega" name="MistMan Omega / SP" check="OptionalBossDefeated" value="223" /> 
-            <setting id="BN3BSO_BowlMan" name="BowlMan" check="OptionalBossDefeated" value="224" /> 
-            <setting id="BN3BSO_BowlManAlpha" name="BowlMan Alpha / V2" check="OptionalBossDefeated" value="225" /> 
-            <setting id="BN3BSO_BowlManBeta" name="BowlMan Beta / V3" check="OptionalBossDefeated" value="226" /> 
-            <setting id="BN3BSO_BowlManOmega" name="BowlMan Omega / SP" check="OptionalBossDefeated" value="227" /> 
-            <setting id="BN3BSO_DarkMan" name="DarkMan" check="OptionalBossDefeated" value="228" /> 
-            <setting id="BN3BSO_DarkManAlpha" name="DarkMan Alpha / V2" check="OptionalBossDefeated" value="229" /> 
-            <setting id="BN3BSO_DarkManBeta" name="DarkMan Beta / V3" check="OptionalBossDefeated" value="230" /> 
-            <setting id="BN3BSO_DarkManOmega" name="DarkMan Omega / SP" check="OptionalBossDefeated" value="231" /> 
-            <setting id="BN3BSO_JapanMan" name="JapanMan" check="OptionalBossDefeated" value="232" /> 
-            <setting id="BN3BSO_JapanManAlpha" name="JapanMan Alpha / V2" check="OptionalBossDefeated" value="233" /> 
-            <setting id="BN3BSO_JapanManBeta" name="JapanMan Beta / V3" check="OptionalBossDefeated" value="234" /> 
-            <setting id="BN3BSO_JapanManOmega" name="JapanMan Omega / SP" check="OptionalBossDefeated" value="235" /> 
-            <setting id="BN3BSO_Serenade" name="Serenade" check="OptionalBossDefeated" value="236" /> 
-            <setting id="BN3BSO_SerenadeAlpha" name="Serenade Alpha / V2" check="OptionalBossDefeated" value="237" /> 
-            <setting id="BN3BSO_SerenadeBeta" name="Serenade Beta / V3" check="OptionalBossDefeated" value="238" /> 
-            <setting id="BN3BSO_SerenadeOmega" name="Serenade Alpha / SP" check="OptionalBossDefeated" value="239" /> 
-            <setting id="BN3BSO_Bass" name="Bass" check="OptionalBossDefeated" value="241" /> 
-            <setting id="BN3BSO_BassGS" name="Bass GS" check="OptionalBossDefeated" value="242" /> 
-            <setting id="BN3BSO_BassOmega" name="Bass Omega" check="OptionalBossDefeated" value="243" /> 
+            <setting id="BN3BSO_FlashManAlpha" name="FlashMan Alpha / V2" check="BossDefeated" value="169" />
+            <setting id="BN3BSO_FlashManBeta" name="FlashMan Beta / V3" check="BossDefeated" value="170" />
+            <setting id="BN3BSO_FlashManOmega" name="FlashMan Omega / SP" check="BossDefeated" value="171" />
+            <setting id="BN3BSO_BeastManAlpha" name="BeastMan Alpha / V2" check="BossDefeated" value="173" />
+            <setting id="BN3BSO_BeastManBeta" name="BeastMan Beta / V3" check="BossDefeated" value="174" />
+            <setting id="BN3BSO_BeastManOmega" name="BeastMan Omega / SP" check="BossDefeated" value="175" />
+            <setting id="BN3BSO_BubbleManBeta" name="BubbleMan Beta / V3" check="BossDefeated" value="178" />
+            <setting id="BN3BSO_BubbleManOmega" name="BubbleMan Omega / SP" check="BossDefeated" value="179" />
+            <setting id="BN3BSO_DesertManAlpha" name="DesertMan Alpha / V2" check="BossDefeated" value="181" />
+            <setting id="BN3BSO_DesertManBeta" name="DesertMan Beta / V3" check="BossDefeated" value="182" />
+            <setting id="BN3BSO_DesertManOmega" name="DesertMan Omega / SP" check="BossDefeated" value="183" /> 
+            <setting id="BN3BSO_PlantManAlpha" name="PlantMan Alpha / V2" check="BossDefeated" value="185" /> 
+            <setting id="BN3BSO_PlantManBeta" name="PlantMan Beta / V3" check="BossDefeated" value="186" /> 
+            <setting id="BN3BSO_PlantManOmega" name="PlantMan Omega / SP" check="BossDefeated" value="187" /> 
+            <setting id="BN3BSO_FlamManAlpha" name="FlamMan Alpha / V2" check="BossDefeated" value="189" /> 
+            <setting id="BN3BSO_FlamManBeta" name="FlamMan Beta / V3" check="BossDefeated" value="190" /> 
+            <setting id="BN3BSO_FlamManOmega" name="FlamMan Omega / SP" check="BossDefeated" value="191" /> 
+            <setting id="BN3BSO_DrillManAlpha" name="DrillMan Alpha / V2" check="BossDefeated" value="193" /> 
+            <setting id="BN3BSO_DrillManBeta" name="DrillMan Beta / V3" check="BossDefeated" value="194" /> 
+            <setting id="BN3BSO_DrillManOmega" name="DrillMan Omega / SP" check="BossDefeated" value="195" /> 
+            <setting id="BN3BSO_Alpha" name="Alpha" check="BossDefeated" value="196" /> 
+            <setting id="BN3BSO_AlphaOmega" name="Alpha Omega" check="BossDefeated" value="197" /> 
+            <setting id="BN3BSO_GutsMan" name="GutsMan" check="BossDefeated" value="200" /> 
+            <setting id="BN3BSO_GutsManAlpha" name="GutsMan Alpha / V2" check="BossDefeated" value="201" /> 
+            <setting id="BN3BSO_GutsManBeta" name="GutsMan Beta / V3" check="BossDefeated" value="202" /> 
+            <setting id="BN3BSO_GutsManOmega" name="GutsMan Omega / SP" check="BossDefeated" value="203" /> 
+            <setting id="BN3BSO_ProtoMan" name="ProtoMan" check="BossDefeated" value="204" /> 
+            <setting id="BN3BSO_ProtoManAlpha" name="ProtoMan Alpha / V2" check="BossDefeated" value="205" /> 
+            <setting id="BN3BSO_ProtoManBeta" name="ProtoMan Beta / V3" check="BossDefeated" value="206" /> 
+            <setting id="BN3BSO_ProtoManOmega" name="ProtoMan Omega / SP" check="BossDefeated" value="207" /> 
+            <setting id="BN3BSO_MetalMan" name="MetalMan" check="BossDefeated" value="208" /> 
+            <setting id="BN3BSO_MetalManAlpha" name="MetalMan Alpha / V2" check="BossDefeated" value="209" /> 
+            <setting id="BN3BSO_MetalManBeta" name="MetalMan Beta / V3" check="BossDefeated" value="210" /> 
+            <setting id="BN3BSO_MetalManOmega" name="MetalMan Omega / SP" check="BossDefeated" value="211" /> 
+            <setting id="BN3BSO_Punk" name="Punk" check="BossDefeated" value="212" /> 
+            <setting id="BN3BSO_PunkAlpha" name="Punk Alpha / V2" check="BossDefeated" value="213" /> 
+            <setting id="BN3BSO_PunkBeta" name="Punk Beta / V3" check="BossDefeated" value="214" /> 
+            <setting id="BN3BSO_PunkOmega" name="Punk Omega / SP" check="BossDefeated" value="215" /> 
+            <setting id="BN3BSO_KingMan" name="KingMan" check="BossDefeated" value="216" /> 
+            <setting id="BN3BSO_KingManAlpha" name="KingMan Alpha / V2" check="BossDefeated" value="217" /> 
+            <setting id="BN3BSO_KingManBeta" name="KingMan Beta / V3" check="BossDefeated" value="218" /> 
+            <setting id="BN3BSO_KingManOmega" name="KingMan Omega / SP" check="BossDefeated" value="219" /> 
+            <setting id="BN3BSO_MistMan" name="MistMan" check="BossDefeated" value="220" /> 
+            <setting id="BN3BSO_MistManAlpha" name="MistMan Alpha / V2" check="BossDefeated" value="221" /> 
+            <setting id="BN3BSO_MistManBeta" name="MistMan Beta / V3" check="BossDefeated" value="222" /> 
+            <setting id="BN3BSO_MistManOmega" name="MistMan Omega / SP" check="BossDefeated" value="223" /> 
+            <setting id="BN3BSO_BowlMan" name="BowlMan" check="BossDefeated" value="224" /> 
+            <setting id="BN3BSO_BowlManAlpha" name="BowlMan Alpha / V2" check="BossDefeated" value="225" /> 
+            <setting id="BN3BSO_BowlManBeta" name="BowlMan Beta / V3" check="BossDefeated" value="226" /> 
+            <setting id="BN3BSO_BowlManOmega" name="BowlMan Omega / SP" check="BossDefeated" value="227" /> 
+            <setting id="BN3BSO_DarkMan" name="DarkMan" check="BossDefeated" value="228" /> 
+            <setting id="BN3BSO_DarkManAlpha" name="DarkMan Alpha / V2" check="BossDefeated" value="229" /> 
+            <setting id="BN3BSO_DarkManBeta" name="DarkMan Beta / V3" check="BossDefeated" value="230" /> 
+            <setting id="BN3BSO_DarkManOmega" name="DarkMan Omega / SP" check="BossDefeated" value="231" /> 
+            <setting id="BN3BSO_JapanMan" name="JapanMan" check="BossDefeated" value="232" /> 
+            <setting id="BN3BSO_JapanManAlpha" name="JapanMan Alpha / V2" check="BossDefeated" value="233" /> 
+            <setting id="BN3BSO_JapanManBeta" name="JapanMan Beta / V3" check="BossDefeated" value="234" /> 
+            <setting id="BN3BSO_JapanManOmega" name="JapanMan Omega / SP" check="BossDefeated" value="235" /> 
+            <setting id="BN3BSO_Serenade" name="Serenade" check="BossDefeated" value="236" /> 
+            <setting id="BN3BSO_SerenadeAlpha" name="Serenade Alpha / V2" check="BossDefeated" value="237" /> 
+            <setting id="BN3BSO_SerenadeBeta" name="Serenade Beta / V3" check="BossDefeated" value="238" /> 
+            <setting id="BN3BSO_SerenadeOmega" name="Serenade Alpha / SP" check="BossDefeated" value="239" /> 
+            <setting id="BN3BSO_Bass" name="Bass" check="BossDefeated" value="241" /> 
+            <setting id="BN3BSO_BassGS" name="Bass GS" check="BossDefeated" value="242" /> 
+            <setting id="BN3BSO_BassOmega" name="Bass Omega" check="BossDefeated" value="243" /> 
         </setting>
     </setting>
     <setting id="BN3W" name="Megaman Battle Network 3 White">
@@ -251,71 +249,71 @@
             <setting id="BN3WSA_YoyoG" name="Yo-Yo G Chip Get" check="BattleRewardGet" />
         </setting>
         <setting id="BN3WSO" name="Optional Bosses">
-            <setting id="BN3WSO_FlashManAlpha" name="FlashMan Alpha / V2" check="OptionalBossDefeated" value="169" />
-            <setting id="BN3WSO_FlashManBeta" name="FlashMan Beta / V3" check="OptionalBossDefeated" value="170" />
-            <setting id="BN3WSO_FlashManOmega" name="FlashMan Omega / SP" check="OptionalBossDefeated" value="171" />
-            <setting id="BN3WSO_BeastManAlpha" name="BeastMan Alpha / V2" check="OptionalBossDefeated" value="173" />
-            <setting id="BN3WSO_BeastManBeta" name="BeastMan Beta / V3" check="OptionalBossDefeated" value="174" />
-            <setting id="BN3WSO_BeastManOmega" name="BeastMan Omega / SP" check="OptionalBossDefeated" value="175" />
-            <setting id="BN3WSO_BubbleManBeta" name="BubbleMan Beta / V3" check="OptionalBossDefeated" value="178" />
-            <setting id="BN3WSO_BubbleManOmega" name="BubbleMan Omega / SP" check="OptionalBossDefeated" value="179" />
-            <setting id="BN3WSO_DesertManAlpha" name="DesertMan Alpha / V2" check="OptionalBossDefeated" value="181" />
-            <setting id="BN3WSO_DesertManBeta" name="DesertMan Beta / V3" check="OptionalBossDefeated" value="182" />
-            <setting id="BN3WSO_DesertManOmega" name="DesertMan Omega / SP" check="OptionalBossDefeated" value="183" /> 
-            <setting id="BN3WSO_PlantManAlpha" name="PlantMan Alpha / V2" check="OptionalBossDefeated" value="185" /> 
-            <setting id="BN3WSO_PlantManBeta" name="PlantMan Beta / V3" check="OptionalBossDefeated" value="186" /> 
-            <setting id="BN3WSO_PlantManOmega" name="PlantMan Omega / SP" check="OptionalBossDefeated" value="187" /> 
-            <setting id="BN3WSO_FlamManAlpha" name="FlamMan Alpha / V2" check="OptionalBossDefeated" value="189" /> 
-            <setting id="BN3WSO_FlamManBeta" name="FlamMan Beta / V3" check="OptionalBossDefeated" value="190" /> 
-            <setting id="BN3WSO_FlamManOmega" name="FlamMan Omega / SP" check="OptionalBossDefeated" value="191" /> 
-            <setting id="BN3WSO_DrillManAlpha" name="DrillMan Alpha / V2" check="OptionalBossDefeated" value="193" /> 
-            <setting id="BN3WSO_DrillManBeta" name="DrillMan Beta / V3" check="OptionalBossDefeated" value="194" /> 
-            <setting id="BN3WSO_DrillManOmega" name="DrillMan Omega / SP" check="OptionalBossDefeated" value="195" /> 
-            <setting id="BN3WSO_Alpha" name="Alpha" check="OptionalBossDefeated" value="196" /> 
-            <setting id="BN3WSO_AlphaOmega" name="Alpha Omega" check="OptionalBossDefeated" value="197" /> 
-            <setting id="BN3WSO_GutsMan" name="GutsMan" check="OptionalBossDefeated" value="200" /> 
-            <setting id="BN3WSO_GutsManAlpha" name="GutsMan Alpha / V2" check="OptionalBossDefeated" value="201" /> 
-            <setting id="BN3WSO_GutsManBeta" name="GutsMan Beta / V3" check="OptionalBossDefeated" value="202" /> 
-            <setting id="BN3WSO_GutsManOmega" name="GutsMan Omega / SP" check="OptionalBossDefeated" value="203" /> 
-            <setting id="BN3WSO_ProtoMan" name="ProtoMan" check="OptionalBossDefeated" value="204" /> 
-            <setting id="BN3WSO_ProtoManAlpha" name="ProtoMan Alpha / V2" check="OptionalBossDefeated" value="205" /> 
-            <setting id="BN3WSO_ProtoManBeta" name="ProtoMan Beta / V3" check="OptionalBossDefeated" value="206" /> 
-            <setting id="BN3WSO_ProtoManOmega" name="ProtoMan Omega / SP" check="OptionalBossDefeated" value="207" /> 
-            <setting id="BN3WSO_MetalMan" name="MetalMan" check="OptionalBossDefeated" value="208" /> 
-            <setting id="BN3WSO_MetalManAlpha" name="MetalMan Alpha / V2" check="OptionalBossDefeated" value="209" /> 
-            <setting id="BN3WSO_MetalManBeta" name="MetalMan Beta / V3" check="OptionalBossDefeated" value="210" /> 
-            <setting id="BN3WSO_MetalManOmega" name="MetalMan Omega / SP" check="OptionalBossDefeated" value="211" /> 
-            <setting id="BN3WSO_Punk" name="Punk" check="OptionalBossDefeated" value="212" /> 
-            <setting id="BN3WSO_PunkAlpha" name="Punk Alpha / V2" check="OptionalBossDefeated" value="213" /> 
-            <setting id="BN3WSO_PunkBeta" name="Punk Beta / V3" check="OptionalBossDefeated" value="214" /> 
-            <setting id="BN3WSO_PunkOmega" name="Punk Omega / SP" check="OptionalBossDefeated" value="215" /> 
-            <setting id="BN3WSO_KingMan" name="KingMan" check="OptionalBossDefeated" value="216" /> 
-            <setting id="BN3WSO_KingManAlpha" name="KingMan Alpha / V2" check="OptionalBossDefeated" value="217" /> 
-            <setting id="BN3WSO_KingManBeta" name="KingMan Beta / V3" check="OptionalBossDefeated" value="218" /> 
-            <setting id="BN3WSO_KingManOmega" name="KingMan Omega / SP" check="OptionalBossDefeated" value="219" /> 
-            <setting id="BN3WSO_MistMan" name="MistMan" check="OptionalBossDefeated" value="220" /> 
-            <setting id="BN3WSO_MistManAlpha" name="MistMan Alpha / V2" check="OptionalBossDefeated" value="221" /> 
-            <setting id="BN3WSO_MistManBeta" name="MistMan Beta / V3" check="OptionalBossDefeated" value="222" /> 
-            <setting id="BN3WSO_MistManOmega" name="MistMan Omega / SP" check="OptionalBossDefeated" value="223" /> 
-            <setting id="BN3WSO_BowlMan" name="BowlMan" check="OptionalBossDefeated" value="224" /> 
-            <setting id="BN3WSO_BowlManAlpha" name="BowlMan Alpha / V2" check="OptionalBossDefeated" value="225" /> 
-            <setting id="BN3WSO_BowlManBeta" name="BowlMan Beta / V3" check="OptionalBossDefeated" value="226" /> 
-            <setting id="BN3WSO_BowlManOmega" name="BowlMan Omega / SP" check="OptionalBossDefeated" value="227" /> 
-            <setting id="BN3WSO_DarkMan" name="DarkMan" check="OptionalBossDefeated" value="228" /> 
-            <setting id="BN3WSO_DarkManAlpha" name="DarkMan Alpha / V2" check="OptionalBossDefeated" value="229" /> 
-            <setting id="BN3WSO_DarkManBeta" name="DarkMan Beta / V3" check="OptionalBossDefeated" value="230" /> 
-            <setting id="BN3WSO_DarkManOmega" name="DarkMan Omega / SP" check="OptionalBossDefeated" value="231" /> 
-            <setting id="BN3WSO_JapanMan" name="JapanMan" check="OptionalBossDefeated" value="232" /> 
-            <setting id="BN3WSO_JapanManAlpha" name="JapanMan Alpha / V2" check="OptionalBossDefeated" value="233" /> 
-            <setting id="BN3WSO_JapanManBeta" name="JapanMan Beta / V3" check="OptionalBossDefeated" value="234" /> 
-            <setting id="BN3WSO_JapanManOmega" name="JapanMan Omega / SP" check="OptionalBossDefeated" value="235" /> 
-            <setting id="BN3WSO_Serenade" name="Serenade" check="OptionalBossDefeated" value="236" /> 
-            <setting id="BN3WSO_SerenadeAlpha" name="Serenade Alpha / V2" check="OptionalBossDefeated" value="237" /> 
-            <setting id="BN3WSO_SerenadeBeta" name="Serenade Beta / V3" check="OptionalBossDefeated" value="238" /> 
-            <setting id="BN3WSO_SerenadeOmega" name="Serenade Alpha / SP" check="OptionalBossDefeated" value="239" /> 
-            <setting id="BN3WSO_Bass" name="Bass" check="OptionalBossDefeated" value="241" /> 
-            <setting id="BN3WSO_BassGS" name="Bass GS" check="OptionalBossDefeated" value="242" /> 
-            <setting id="BN3WSO_BassOmega" name="Bass Omega" check="OptionalBossDefeated" value="243" /> 
+            <setting id="BN3WSO_FlashManAlpha" name="FlashMan Alpha / V2" check="BossDefeated" value="169" />
+            <setting id="BN3WSO_FlashManBeta" name="FlashMan Beta / V3" check="BossDefeated" value="170" />
+            <setting id="BN3WSO_FlashManOmega" name="FlashMan Omega / SP" check="BossDefeated" value="171" />
+            <setting id="BN3WSO_BeastManAlpha" name="BeastMan Alpha / V2" check="BossDefeated" value="173" />
+            <setting id="BN3WSO_BeastManBeta" name="BeastMan Beta / V3" check="BossDefeated" value="174" />
+            <setting id="BN3WSO_BeastManOmega" name="BeastMan Omega / SP" check="BossDefeated" value="175" />
+            <setting id="BN3WSO_BubbleManBeta" name="BubbleMan Beta / V3" check="BossDefeated" value="178" />
+            <setting id="BN3WSO_BubbleManOmega" name="BubbleMan Omega / SP" check="BossDefeated" value="179" />
+            <setting id="BN3WSO_DesertManAlpha" name="DesertMan Alpha / V2" check="BossDefeated" value="181" />
+            <setting id="BN3WSO_DesertManBeta" name="DesertMan Beta / V3" check="BossDefeated" value="182" />
+            <setting id="BN3WSO_DesertManOmega" name="DesertMan Omega / SP" check="BossDefeated" value="183" /> 
+            <setting id="BN3WSO_PlantManAlpha" name="PlantMan Alpha / V2" check="BossDefeated" value="185" /> 
+            <setting id="BN3WSO_PlantManBeta" name="PlantMan Beta / V3" check="BossDefeated" value="186" /> 
+            <setting id="BN3WSO_PlantManOmega" name="PlantMan Omega / SP" check="BossDefeated" value="187" /> 
+            <setting id="BN3WSO_FlamManAlpha" name="FlamMan Alpha / V2" check="BossDefeated" value="189" /> 
+            <setting id="BN3WSO_FlamManBeta" name="FlamMan Beta / V3" check="BossDefeated" value="190" /> 
+            <setting id="BN3WSO_FlamManOmega" name="FlamMan Omega / SP" check="BossDefeated" value="191" /> 
+            <setting id="BN3WSO_DrillManAlpha" name="DrillMan Alpha / V2" check="BossDefeated" value="193" /> 
+            <setting id="BN3WSO_DrillManBeta" name="DrillMan Beta / V3" check="BossDefeated" value="194" /> 
+            <setting id="BN3WSO_DrillManOmega" name="DrillMan Omega / SP" check="BossDefeated" value="195" /> 
+            <setting id="BN3WSO_Alpha" name="Alpha" check="BossDefeated" value="196" /> 
+            <setting id="BN3WSO_AlphaOmega" name="Alpha Omega" check="BossDefeated" value="197" /> 
+            <setting id="BN3WSO_GutsMan" name="GutsMan" check="BossDefeated" value="200" /> 
+            <setting id="BN3WSO_GutsManAlpha" name="GutsMan Alpha / V2" check="BossDefeated" value="201" /> 
+            <setting id="BN3WSO_GutsManBeta" name="GutsMan Beta / V3" check="BossDefeated" value="202" /> 
+            <setting id="BN3WSO_GutsManOmega" name="GutsMan Omega / SP" check="BossDefeated" value="203" /> 
+            <setting id="BN3WSO_ProtoMan" name="ProtoMan" check="BossDefeated" value="204" /> 
+            <setting id="BN3WSO_ProtoManAlpha" name="ProtoMan Alpha / V2" check="BossDefeated" value="205" /> 
+            <setting id="BN3WSO_ProtoManBeta" name="ProtoMan Beta / V3" check="BossDefeated" value="206" /> 
+            <setting id="BN3WSO_ProtoManOmega" name="ProtoMan Omega / SP" check="BossDefeated" value="207" /> 
+            <setting id="BN3WSO_MetalMan" name="MetalMan" check="BossDefeated" value="208" /> 
+            <setting id="BN3WSO_MetalManAlpha" name="MetalMan Alpha / V2" check="BossDefeated" value="209" /> 
+            <setting id="BN3WSO_MetalManBeta" name="MetalMan Beta / V3" check="BossDefeated" value="210" /> 
+            <setting id="BN3WSO_MetalManOmega" name="MetalMan Omega / SP" check="BossDefeated" value="211" /> 
+            <setting id="BN3WSO_Punk" name="Punk" check="BossDefeated" value="212" /> 
+            <setting id="BN3WSO_PunkAlpha" name="Punk Alpha / V2" check="BossDefeated" value="213" /> 
+            <setting id="BN3WSO_PunkBeta" name="Punk Beta / V3" check="BossDefeated" value="214" /> 
+            <setting id="BN3WSO_PunkOmega" name="Punk Omega / SP" check="BossDefeated" value="215" /> 
+            <setting id="BN3WSO_KingMan" name="KingMan" check="BossDefeated" value="216" /> 
+            <setting id="BN3WSO_KingManAlpha" name="KingMan Alpha / V2" check="BossDefeated" value="217" /> 
+            <setting id="BN3WSO_KingManBeta" name="KingMan Beta / V3" check="BossDefeated" value="218" /> 
+            <setting id="BN3WSO_KingManOmega" name="KingMan Omega / SP" check="BossDefeated" value="219" /> 
+            <setting id="BN3WSO_MistMan" name="MistMan" check="BossDefeated" value="220" /> 
+            <setting id="BN3WSO_MistManAlpha" name="MistMan Alpha / V2" check="BossDefeated" value="221" /> 
+            <setting id="BN3WSO_MistManBeta" name="MistMan Beta / V3" check="BossDefeated" value="222" /> 
+            <setting id="BN3WSO_MistManOmega" name="MistMan Omega / SP" check="BossDefeated" value="223" /> 
+            <setting id="BN3WSO_BowlMan" name="BowlMan" check="BossDefeated" value="224" /> 
+            <setting id="BN3WSO_BowlManAlpha" name="BowlMan Alpha / V2" check="BossDefeated" value="225" /> 
+            <setting id="BN3WSO_BowlManBeta" name="BowlMan Beta / V3" check="BossDefeated" value="226" /> 
+            <setting id="BN3WSO_BowlManOmega" name="BowlMan Omega / SP" check="BossDefeated" value="227" /> 
+            <setting id="BN3WSO_DarkMan" name="DarkMan" check="BossDefeated" value="228" /> 
+            <setting id="BN3WSO_DarkManAlpha" name="DarkMan Alpha / V2" check="BossDefeated" value="229" /> 
+            <setting id="BN3WSO_DarkManBeta" name="DarkMan Beta / V3" check="BossDefeated" value="230" /> 
+            <setting id="BN3WSO_DarkManOmega" name="DarkMan Omega / SP" check="BossDefeated" value="231" /> 
+            <setting id="BN3WSO_JapanMan" name="JapanMan" check="BossDefeated" value="232" /> 
+            <setting id="BN3WSO_JapanManAlpha" name="JapanMan Alpha / V2" check="BossDefeated" value="233" /> 
+            <setting id="BN3WSO_JapanManBeta" name="JapanMan Beta / V3" check="BossDefeated" value="234" /> 
+            <setting id="BN3WSO_JapanManOmega" name="JapanMan Omega / SP" check="BossDefeated" value="235" /> 
+            <setting id="BN3WSO_Serenade" name="Serenade" check="BossDefeated" value="236" /> 
+            <setting id="BN3WSO_SerenadeAlpha" name="Serenade Alpha / V2" check="BossDefeated" value="237" /> 
+            <setting id="BN3WSO_SerenadeBeta" name="Serenade Beta / V3" check="BossDefeated" value="238" /> 
+            <setting id="BN3WSO_SerenadeOmega" name="Serenade Alpha / SP" check="BossDefeated" value="239" /> 
+            <setting id="BN3WSO_Bass" name="Bass" check="BossDefeated" value="241" /> 
+            <setting id="BN3WSO_BassGS" name="Bass GS" check="BossDefeated" value="242" /> 
+            <setting id="BN3WSO_BassOmega" name="Bass Omega" check="BossDefeated" value="243" /> 
         </setting>
     </setting>
     <setting id="BN4B" name="Megaman Battle Network 4 Blue Moon">
