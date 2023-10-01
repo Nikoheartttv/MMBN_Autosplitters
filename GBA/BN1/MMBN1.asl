@@ -111,7 +111,7 @@ init
 
 start
 {
-    return (old.GameState == 0 && current.GameState != 0);
+    return (old.GameState == 0 && (current.GameState != 0 && current.GameState != 20));
 }
 
 onStart
