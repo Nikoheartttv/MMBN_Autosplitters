@@ -102,6 +102,7 @@ init
         emu.Make<short>("EnemyNo2HP", 0x02006850);
         emu.Make<short>("EnemyNo3HP", 0x02006910);
         emu.Make<byte>("GameState", 0x02006CB8);
+        emu.Make<byte>("StartSound", 0x02003148);
 		
         return true;
     });
@@ -111,7 +112,8 @@ init
 
 start
 {
-    return (old.GameState == 0 && (current.GameState != 0 && current.GameState != 20));
+    // return (old.GameState == 0 && (current.GameState != 0 && current.GameState != 20));
+    return old.StartSound == 0 && current.StartSound == 128;
 }
 
 onStart
@@ -125,14 +127,14 @@ update
     // {
     //     print("BattleState changed. Current area is: " + vars.Helper["BattleState"].Current.ToString());
     // }
-    if (vars.Helper["GameState"].Changed)
-    {
-        print("GameState changed. Current area is: " + vars.Helper["GameState"].Current.ToString());
-    }
-    if (vars.Helper["GameLoadingFlag"].Changed)
-    {
-        print("GameLoadingFlag changed. Current area is: " + vars.Helper["GameLoadingFlag"].Current.ToString());
-    }
+    // if (vars.Helper["GameState"].Changed)
+    // {
+    //     print("GameState changed. Current area is: " + vars.Helper["GameState"].Current.ToString());
+    // }
+    // if (vars.Helper["GameLoadingFlag"].Changed)
+    // {
+    //     print("GameLoadingFlag changed. Current area is: " + vars.Helper["GameLoadingFlag"].Current.ToString());
+    // }
     // if (vars.Helper["EnemyNo1"].Changed)
     // {
     //     print("EnemyNo1 changed. Current EnemyNo1 is: " + vars.Helper["EnemyNo1"].Current.ToString());
@@ -145,25 +147,29 @@ update
     // {
     //     print("EnemyNo3 changed. Current EnemyNo3 is: " + vars.Helper["EnemyNo3"].Current.ToString());
     // }
-    if (vars.Helper["MainArea"].Changed)
+    // if (vars.Helper["MainArea"].Changed)
+    // {
+    //     print("MainArea changed. Current area is: " + vars.Helper["MainArea"].Current.ToString());
+    // }
+    // if (vars.Helper["SubArea"].Changed)
+    // {
+    //     print("SubArea changed. Current area is: " + vars.Helper["SubArea"].Current.ToString());
+    // }
+	// if (vars.Helper["Progress"].Changed)
+    // {
+    //     print("Progress changed. Current area is: " + vars.Helper["Progress"].Current.ToString());
+    // }
+	// if (vars.Helper["FinalDing"].Changed)
+    // {
+    //     print("FinalDing changed. Current value is: " + vars.Helper["FinalDing"].Current.ToString());
+    // }
+	// if (vars.Helper["FinalScene"].Changed)
+    // {
+    //     print("FinalScene changed. Current value is: " + vars.Helper["FinalScene"].Current.ToString());
+    // }
+    if (vars.Helper["StartSound"].Changed)
     {
-        print("MainArea changed. Current area is: " + vars.Helper["MainArea"].Current.ToString());
-    }
-    if (vars.Helper["SubArea"].Changed)
-    {
-        print("SubArea changed. Current area is: " + vars.Helper["SubArea"].Current.ToString());
-    }
-	if (vars.Helper["Progress"].Changed)
-    {
-        print("Progress changed. Current area is: " + vars.Helper["Progress"].Current.ToString());
-    }
-	if (vars.Helper["FinalDing"].Changed)
-    {
-        print("FinalDing changed. Current value is: " + vars.Helper["FinalDing"].Current.ToString());
-    }
-	if (vars.Helper["FinalScene"].Changed)
-    {
-        print("FinalScene changed. Current value is: " + vars.Helper["FinalScene"].Current.ToString());
+        print("StartSound changed. StartSound is: " + vars.Helper["StartSound"].Current.ToString());
     }
 
     if (vars.Helper["Key_Hig_Memo"].Changed && vars.Helper["Key_Hig_Memo"].Current) print("Hig Memo Get");
