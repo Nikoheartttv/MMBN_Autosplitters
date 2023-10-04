@@ -15,6 +15,17 @@ startup
 		}
 	};
 
+    vars.DoghouseLeave = (Func<byte, bool>)((bossId) =>
+	{
+		if (vars.Helper["MainArea"].Current == bossId && vars.Helper["EnemyNo1HP"].Current == 0 ||
+			vars.Helper["EnemyNo2"].Current == bossId && vars.Helper["EnemyNo2HP"].Current == 0 ||
+			vars.Helper["EnemyNo3"].Current == bossId && vars.Helper["EnemyNo3HP"].Current == 0)
+		{
+			return vars.Helper["GameState"].Old == 8 && vars.Helper["GameState"].Current == 4;
+		}
+		return false;
+	});
+
     vars.CheckBossDefeated = (Func<byte, bool>)((bossId) =>
 	{
 		if (vars.Helper["EnemyNo1"].Current == bossId && vars.Helper["EnemyNo1HP"].Current == 0 ||
@@ -96,5 +107,13 @@ update
      if (vars.Helper["BattleReward"].Changed)
     {
         print("BattleReward changed. BattleReward is: " + vars.Helper["BattleReward"].Current.ToString());
+    }
+    if (vars.Helper["MainArea"].Changed)
+    {
+        print("MainArea changed. Current area is: " + vars.Helper["MainArea"].Current.ToString());
+    }
+    if (vars.Helper["SubArea"].Changed)
+    {
+        print("SubArea changed. Current area is: " + vars.Helper["SubArea"].Current.ToString());
     }
 }
