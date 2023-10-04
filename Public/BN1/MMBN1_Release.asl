@@ -41,8 +41,8 @@ startup
             vars.Helper["Key_Pa_Memo"] == null ||
             vars.Helper["Key_Yuri_Memo"] == null) return false;
 
-        if (vars.Helper["Key_Hig_Memo"].Current && vars.Helper["Key_Lab_Memo"].Current &&
-            vars.Helper["Key_Pa_Memo"].Current && vars.Helper["Key_Yuri_Memo"].Current &&
+        if (vars.Helper["Key_Hig_Memo"].Current == 1 && vars.Helper["Key_Lab_Memo"].Current == 1 &&
+            vars.Helper["Key_Pa_Memo"].Current == 1 && vars.Helper["Key_Yuri_Memo"].Current == 1 &&
 			vars.Helper["MainArea"].Current == 2 && vars.Helper["SubArea"].Current == 5 &&
 			vars.Helper["GameState"].Changed && vars.Helper["GameState"].Current == 12)
 		{
@@ -85,10 +85,10 @@ init
         emu.Make<byte>("MainArea", 0x02000214);
         emu.Make<byte>("SubArea", 0x02000215);
         emu.Make<byte>("Progress", 0x02000216);
-        emu.Make<bool>("Key_Hig_Memo", 0x02000304);
-        emu.Make<bool>("Key_Lab_Memo", 0x02000305);
-        emu.Make<bool>("Key_Pa_Memo", 0x02000306);
-        emu.Make<bool>("Key_Yuri_Memo", 0x02000307);
+        emu.Make<byte>("Key_Hig_Memo", 0x02000304);
+        emu.Make<byte>("Key_Lab_Memo", 0x02000305);
+        emu.Make<byte>("Key_Pa_Memo", 0x02000306);
+        emu.Make<byte>("Key_Yuri_Memo", 0x02000307);
 		emu.Make<byte>("FinalDing", 0x020030A8);
 		emu.Make<byte>("BattleState", 0x02003712);
         emu.Make<byte>("EnemyNo1", 0x02003774);
@@ -108,7 +108,7 @@ init
 
 start
 {
-    return old.StartSound == 0 && current.StartSound == 128;
+    return vars.Helper["StartSound"].Old == 0 && vars.Helper["StartSound"].Current == 128;
 }
 
 onStart
