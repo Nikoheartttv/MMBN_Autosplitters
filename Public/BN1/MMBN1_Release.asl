@@ -2,7 +2,23 @@ state("LiveSplit") {}
 
 startup
 {
-    Assembly.Load(File.ReadAllBytes("Components/emu-help-v2")).CreateInstance("GBA");
+    if (timer.CurrentTimingMethod == TimingMethod.GameTime)
+	{
+		var timingMessage = MessageBox.Show (
+			"This game uses Real Time (RTA) as the main timing method.\n"+
+			"LiveSplit is currently set to show Time without Loads (Game Time).\n"+
+			"Would you like to set the timing method to Real Time?",
+			"LiveSplit | Mega Man Battle Network 3",
+			MessageBoxButtons.YesNo,MessageBoxIcon.Question
+		);
+
+		if (timingMessage == DialogResult.Yes)
+		{
+			timer.CurrentTimingMethod = TimingMethod.RealTime;
+		}
+	}
+
+	Assembly.Load(File.ReadAllBytes("Components/emu-help-v2")).CreateInstance("GBA");
 
     Action<IEnumerable<System.Xml.Linq.XElement>, string> ReadSettingsXML = null;
     ReadSettingsXML = (elements, parentid) =>
@@ -108,7 +124,7 @@ init
 
 start
 {
-    return vars.Helper["StartSound"].Old == 0 && vars.Helper["StartSound"].Current == 128;
+    return vars.Helper["StartSound"].Changed && vars.Helper["StartSound"].Current == 128;
 }
 
 onStart
