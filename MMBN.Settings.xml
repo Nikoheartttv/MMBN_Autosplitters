@@ -61,15 +61,16 @@
     </setting>
     <setting id="BN2" name="Megaman Battle Network 2">
         <setting id="BN2SM" name="Main Splits" defaultValue="true">
+            <setting id="BN2SM_Doghouse" name="Doghouse" />
             <setting id="BN2SM_ZLicensePassed" name="Z License Passed" />
             <setting id="BN2SM_AirMan" name="AirMan" defaultValue="true" check="BossDefeated" value="128" />
-            <setting id="BN2SM_BLicensePassed" name="B License Passed" defaultValue="true" />
+            <setting id="BN2SM_BLicensePassed" name="B License Passed" check="BLicenseExam" defaultValue="true" value="" />
             <setting id="BN2SM_GutsMan" name="GutsMan" defaultValue="true" check="BossDefeated" value="164" />
             <setting id="BN2SM_QuickMan" name="QuickMan" defaultValue="true" check="BossDefeated" value="131" />
             <setting id="BN2SM_ALicensePrelims" name="A License Prelimiaries Passed" defaultValue="true" />
             <setting id="BN2SM_ALicenseExam" name="A License Exam Passed" defaultValue="true" />
             <setting id="BN2SM_CutMan" name="CutMan" defaultValue="true" check="BossDefeated" value="134" />
-            <setting id="BN2SM_EscapedYumland" name="Escaped Yumland" defaultValue="true" />
+            <setting id="BN2SM_EscapedYumland" name="Escaped Yumland" defaultValue="true" check="Progress" value="26" />
             <setting id="BN2SM_ShadowMan" name="ShadowMan" defaultValue="true" check="BossDefeated" value="137" />
             <setting id="BN2SM_ThunderMan" name="ThunderMan" defaultValue="true" check="BossDefeated" value="158" />
             <setting id="BN2SM_SnakeMan" name="SnakeMan" defaultValue="true" check="BossDefeated" value="161" />
