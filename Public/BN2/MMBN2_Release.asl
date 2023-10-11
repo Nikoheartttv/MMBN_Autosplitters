@@ -20,7 +20,6 @@ startup
 		}
 	}
 
-    // Function Definitions
     Action<IEnumerable<System.Xml.Linq.XElement>, string> ReadSettingsXML = null;
     ReadSettingsXML = (elements, parentid) =>
 	{
@@ -39,6 +38,19 @@ startup
                 vars.Helper["MainArea"].Current == 0 && vars.Helper["SubArea"].Current == 0) return true;
                 
         return false;
+	});
+
+	vars.CheckBossDeleted = (Func<byte, bool>)((bossId) =>
+	{
+        if (vars.Helper["GameState"].Current != 8) return false;
+		if (vars.Helper["EnemyNo1"].Current == bossId && vars.Helper["EnemyNo1HP"].Old > 0 && vars.Helper["EnemyNo1HP"].Current == 0 ||
+			vars.Helper["EnemyNo2"].Current == bossId && vars.Helper["EnemyNo2HP"].Old > 0 && vars.Helper["EnemyNo2HP"].Current == 0 ||
+			vars.Helper["EnemyNo3"].Current == bossId && vars.Helper["EnemyNo3HP"].Old > 0 && vars.Helper["EnemyNo3HP"].Current == 0 )
+		{
+			return true;
+		}
+
+		return false;
 	});
 
     vars.CheckBossDefeated = (Func<byte, bool>)((bossId) =>
@@ -63,7 +75,7 @@ startup
 		return false;
     });
 
-    vars.CheckInCoffeeMachine = (Action)(() =>
+    vars.CheckHasBeenInCoffeeMachine = (Action)(() =>
     {
         if (!vars.HasBeeninCoffeeMachine)
         {
@@ -119,7 +131,7 @@ startup
 
 	vars.CheckCompleted = (Func<bool>)(() =>
 	{
-		if (vars.Helper["MainArea"].Current != 2 || vars.Helper["SubArea"].Current != 4) return false;
+		if (vars.Helper["Progress"].Current != 72 || vars.Helper["MainArea"].Current != 2 || vars.Helper["SubArea"].Current != 4) return false;
         if (vars.Helper["FinalDing"].Old == 0 && vars.Helper["FinalDing"].Current == 128)
         {
             return true;
@@ -128,8 +140,12 @@ startup
 		return false;
 	});
 
-
-    // End function definitions
+	vars.CheckHeatData = (Func<bool>)(() =>
+	{
+		if (vars.Helper["KeyItem_HeatData"].Old == 0 && vars.Helper["KeyItem_HeatData"].Current == 1) return true;
+		return false;
+	});
+	
 
     var xml = System.Xml.Linq.XDocument.Load(@"Components/MMBN.Settings.xml");
     foreach (var element in xml.Element("settings").Elements("setting"))
@@ -172,7 +188,6 @@ init
 
 start
 {
-    // return old.GameLoadingFlag == 4 && current.GameState == 8;
     return vars.Helper["StartSound"].Changed && vars.Helper["StartSound"].Current == 128;
 }
 
@@ -183,59 +198,7 @@ onStart
 
 update
 {
-    vars.CheckInCoffeeMachine();
-    if (vars.Helper["GameState"].Changed)
-    {
-        print("GameState changed. Current area is: " + vars.Helper["GameState"].Current.ToString());
-    }
-    if (vars.Helper["GameLoadingFlag"].Changed)
-    {
-        print("GameLoadingFlag changed. Current area is: " + vars.Helper["GameLoadingFlag"].Current.ToString());
-    }
-    if (vars.Helper["StartSound"].Changed)
-    {
-        print("StartSound changed. StartSound is: " + vars.Helper["StartSound"].Current.ToString());
-    }
-     if (vars.Helper["BattleReward"].Changed)
-    {
-        print("BattleReward changed. BattleReward is: " + vars.Helper["BattleReward"].Current.ToString());
-    }
-    if (vars.Helper["MainArea"].Changed)
-    {
-        print("MainArea changed. Current area is: " + vars.Helper["MainArea"].Current.ToString());
-    }
-    if (vars.Helper["SubArea"].Changed)
-    {
-        print("SubArea changed. Current area is: " + vars.Helper["SubArea"].Current.ToString());
-    }
-    if (vars.Helper["EnemyNo1"].Changed)
-    {
-        print("Enemy #1 is: " + vars.Helper["EnemyNo1"].Current.ToString());
-    }
-    if (vars.Helper["EnemyNo2"].Changed)
-    {
-        print("Enemy #2 is: " + vars.Helper["EnemyNo2"].Current.ToString());
-    }
-    if (vars.Helper["EnemyNo3"].Changed)
-    {
-        print("Enemy #3 is: " + vars.Helper["EnemyNo3"].Current.ToString());
-    }
-     if (vars.Helper["EnemyNo1HP"].Changed)
-    {
-        print("Enemy #1 HP is: " + vars.Helper["EnemyNo1HP"].Current.ToString());
-    }
-    if (vars.Helper["EnemyNo2HP"].Changed)
-    {
-        print("Enemy #2 HP is: " + vars.Helper["EnemyNo2HP"].Current.ToString());
-    }
-    if (vars.Helper["EnemyNo3HP"].Changed)
-    {
-        print("Enemy #3 HP is: " + vars.Helper["EnemyNo3HP"].Current.ToString());
-    }
-    if (vars.Helper["Progress"].Changed)
-    {
-        print("Progress changed. Current value is: " + vars.Helper["Progress"].Current.ToString());
-    }
+    vars.CheckHasBeenInCoffeeMachine();
 }
 
 split
@@ -260,8 +223,8 @@ split
 							}
 						}
 						break;
-
-                    case "BossDefeated":
+						
+					case "BossDefeated":
 						{
 							byte value = Byte.Parse(element.Attribute("value").Value);
 							if (vars.CheckBossDefeated(value)) 
@@ -293,50 +256,54 @@ split
 							}
 						}
 						break;
-
-                    // case "BLicenseExam":
-					// 	{
-					// 		byte value = Byte.Parse(element.Attribute("value").Value);
-					// 		if (vars.CheckBossDefeated(value)) 
-					// 		{
-					// 			print("Boss Defeated: " + element.Attribute("name").Value);
-					// 			return true;
-					// 		}
-					// 	}
-					// 	break;
 					
+					case "Doghouse":
+						if (vars.DoghouseLeave())
+						{
+							print("Doghouse Split");
+							return true;
+						}
+						break;
+					
+					case "BLicense":
+						if (vars.CheckBLicense())
+						{
+							print("BLicense Split");
+							return true;
+						}
+						break;
+
+					case "ALicensePrelims":
+						if (vars.CheckALicensePrelims())
+						{
+							print("ALicensePrelims Split");
+							return true;
+						}
+						break;
+
+					case "ALicense":
+						if (vars.CheckALicense())
+						{
+							print("ALicense Split");
+							return true;
+						}
+						break;
+
+					case "HeatData":
+						if (vars.CheckHeatData())
+						{
+							print("Heat Data Split");
+							return true;
+						}
+						break;
 				}
 				
 			}
 		}
 	}
 
-    // if (vars.CheckCompleted()) return true;
-    if (vars.DoghouseLeave())
-    {
-        print("Doghouse Split");
-        return true;
-    }
-
-    if (vars.CheckBLicense())
-    {
-        print("BLicense Split");
-        return true;
-    }
-
-    if (vars.CheckALicensePrelims())
-    {
-        print("ALicensePrelims Split");
-        return true;
-    }
-    if (vars.CheckALicense())
-    {
-        print("ALicense Split");
-        return true;
-    }
-
     if (vars.CheckCompleted()) return true;
 
-    return (vars.Helper["KeyItem_HeatData"].Old == 0 && vars.Helper["KeyItem_HeatData"].Current == 1); 
+    
 
  }

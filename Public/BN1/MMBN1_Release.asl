@@ -30,7 +30,20 @@ startup
 		}
 	};
 
-    vars.CheckBossDefeated = (Func<byte, bool>)((bossId) =>
+    vars.CheckBossDeleted = (Func<byte, bool>)((bossId) =>
+	{
+        if (vars.Helper["GameState"].Current != 8) return false;
+		if (vars.Helper["EnemyNo1"].Current == bossId && vars.Helper["EnemyNo1HP"].Old > 0 && vars.Helper["EnemyNo1HP"].Current == 0 ||
+			vars.Helper["EnemyNo2"].Current == bossId && vars.Helper["EnemyNo2HP"].Old > 0 && vars.Helper["EnemyNo2HP"].Current == 0 ||
+			vars.Helper["EnemyNo3"].Current == bossId && vars.Helper["EnemyNo3HP"].Old > 0 && vars.Helper["EnemyNo3HP"].Current == 0 )
+		{
+			return true;
+		}
+
+		return false;
+	});
+
+	vars.CheckBossDefeated = (Func<byte, bool>)((bossId) =>
 	{
 		if (vars.Helper["EnemyNo1"].Current == bossId && vars.Helper["EnemyNo1HP"].Current == 0 ||
 			vars.Helper["EnemyNo2"].Current == bossId && vars.Helper["EnemyNo2HP"].Current == 0 ||
@@ -157,6 +170,17 @@ split
 
 				switch(check)
 				{
+					case "BossDeleted":
+						{
+							byte value = Byte.Parse(element.Attribute("value").Value);
+							if (vars.CheckBossDeleted(value)) 
+							{
+								print("Boss Deleted: " + element.Attribute("name").Value);
+								return true;
+							}
+						}
+						break;
+					
 					case "BossDefeated":
 						{
 							byte value = Byte.Parse(element.Attribute("value").Value);

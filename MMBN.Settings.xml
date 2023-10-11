@@ -21,7 +21,7 @@
         <setting id="BN1SMB" name="Mini-Bosses" defaultValue="true">
             <setting id="BN1SM_Floshell" name="Floshell Mini-Boss" defaultValue="true" check="MiniBossDefeated" value="24" />
         </setting>
-            <setting id="BN1SO" name="Optional Bosses">
+        <setting id="BN1SO" name="Optional Bosses">
             <setting id="BN1SO_GutsManV2" name="GutsManV2" check="BossDefeated" value="97" />
             <setting id="BN1SO_GutsManV3" name="GutsManV3" check="BossDefeated" value="98" />
             <setting id="BN1SO_ProtoManV2" name="ProtoManV2" check="BossDefeated" value="100" />
@@ -58,17 +58,19 @@
             <setting id="BN1SO_MagicManV3" name="MagicManV3" check="BossDefeated" value="143" />
             <setting id="BN1SO_Bass" name="Bass" check="BossDefeated" value="144" />
         </setting>
+        <setting id="BN1SCE" name="Category Extensions">
+            <setting id="BN1SCE_StoneMan" name="Delete StoneMan " check="BossDeleted" value="111" />
+        </setting>
     </setting>
     <setting id="BN2" name="Megaman Battle Network 2">
         <setting id="BN2SM" name="Main Splits" defaultValue="true">
-            <setting id="BN2SM_Doghouse" name="Doghouse" />
             <setting id="BN2SM_ZLicensePassed" name="Z License Passed" />
             <setting id="BN2SM_AirMan" name="AirMan" defaultValue="true" check="BossDefeated" value="128" />
-            <setting id="BN2SM_BLicensePassed" name="B License Passed" check="BLicenseExam" defaultValue="true" value="" />
+            <setting id="BN2SM_BLicensePassed" name="B License Passed" defaultValue="true" check="BLicense" value="" />
             <setting id="BN2SM_GutsMan" name="GutsMan" defaultValue="true" check="BossDefeated" value="164" />
             <setting id="BN2SM_QuickMan" name="QuickMan" defaultValue="true" check="BossDefeated" value="131" />
-            <setting id="BN2SM_ALicensePrelims" name="A License Prelimiaries Passed" defaultValue="true" />
-            <setting id="BN2SM_ALicenseExam" name="A License Exam Passed" defaultValue="true" />
+            <setting id="BN2SM_ALicensePrelims" name="A License Prelimiaries Passed" defaultValue="true" check="ALicensePrelims" value="" />
+            <setting id="BN2SM_ALicenseExam" name="A License Exam Passed" defaultValue="true" check="ALicense" value="" />
             <setting id="BN2SM_CutMan" name="CutMan" defaultValue="true" check="BossDefeated" value="134" />
             <setting id="BN2SM_EscapedYumland" name="Escaped Yumland" defaultValue="true" check="Progress" value="26" />
             <setting id="BN2SM_ShadowMan" name="ShadowMan" defaultValue="true" check="BossDefeated" value="137" />
@@ -77,16 +79,15 @@
             <setting id="BN2SM_ProtoMan" name="ProtoMan" defaultValue="true" check="BossDefeated" value="167" />
             <setting id="BN2SM_KnightMan" name="KnightMan" defaultValue="true" check="BossDefeated" value="140" />
             <setting id="BN2SM_MagnetMan" name="MagnetMan" defaultValue="true" check="BossDefeated" value="143" />
-            <setting id="BN2SM_HeatData" name="HeatData Acquired" defaultValue="true" />
+            <setting id="BN2SM_HeatData" name="HeatData Acquired" defaultValue="true" check="HeatData" value="" />
             <setting id="BN2SM_FreezeMan" name="FreezeMan" defaultValue="true" check="BossDefeated" value="146" />
-            <setting id="BN2SM_BossRush1" name="Bosh Rush 1" defaultValue="true" />
-            <setting id="BN2SM_BossRush2" name="Bosh Rush 2" defaultValue="true" />
+            <setting id="BN2SM_BossRush1" name="Bosh Rush 1" defaultValue="true" check="BossRush" value="134" />
+            <setting id="BN2SM_BossRush2" name="Bosh Rush 2" defaultValue="true" check="BossRush" value="146 "/>
             <setting id="BN2SM_Bass" name="Bass" defaultValue="true" check="BossDefeated" value="182" />
             <setting id="BN2SM_Completed" name="Completed" defaultValue="true" />
         </setting>
         <setting id="BN2SA" name="Alt Splits">
-            <setting id="BN2SA_2Doghouse" name="Doghouse" />
-            <setting id="BN2SA_GospelSplit" name="Gospel" />
+            <setting id="BN2SA_2Doghouse" name="Doghouse" defaultValue="false" check="Doghouse" value="" />
         </setting>
         <setting id="BN2SO" name="Optional Bosses">
             <setting id="BN2SO_AirManV2" name="AirManV2" check="BossDefeated" value="129" />
@@ -130,6 +131,9 @@
             <setting id="BN2SO_PharaohManV2" name="PharaohManV2" check="BossDefeated" value="180" />
             <setting id="BN2SO_PharaohManV3" name="PharaohManV3" check="BossDefeated" value="181" />
             <setting id="BN2SO_BassDeluxe" name="Bass Deluxe" check="BossDefeated" value="184" />
+        </setting>
+        <setting id="BN2SCE" name="Category Extensions">
+            <setting id="BN2SCE_StoneMan" name="Delete QuickMan " check="BossDeleted" value="131" />
         </setting>
     </setting>
     <setting id="BN3" name="Megaman Battle Network 3 Blue">
