@@ -145,11 +145,11 @@
             <setting id="BN3SM_Wind" name="Wind *" defaultValue="true" check="BattleRewardGet" value="13455" />
             <setting id="BN3SM_N1Prelim3" name="N1 Prelim 3" defaultValue="true" check="N1Prelims3" value="" />
             <setting id="BN3SM_BubbleMan" name="BubbleMan" defaultValue="true" check="BossDefeated" value="176" />
-            <setting id="BN3SM_BeachGauntlet" name="Beach Gauntlet" defaultValue="true" />
+            <setting id="BN3SM_BeachGauntlet" name="Beach Gauntlet" defaultValue="true" check="Progress" value="50" />
             <setting id="BN3SM_DesertMan" name="DesertMan" defaultValue="true" check="BossDefeated" value="180" />
             <setting id="BN3SM_ToraJobs" name="Tora Jobs" defaultValue="true" />
             <setting id="BN3SM_PlantMan" name="PlantMan" defaultValue="true" check="BossDefeated" value="184" />
-            <setting id="BN3SM_FiresStarted" name="Fires Started - SciLab Train Stairs End Convo" defaultValue="true" />
+            <setting id="BN3SM_FiresStarted" name="Fires Started - SciLab Train Stairs End Convo" defaultValue="true" check="FiresStarted" value="" />
             <setting id="BN3SM_FlamMan" name="FlamMan" defaultValue="true" check="BossDefeated" value="188" />
             <setting id="BN3SM_Rank10" name="Rank 10" defaultValue="true" />
             <setting id="BN3SM_DrillMan" name="DrillMan" defaultValue="true" check="BossDefeated" value="192" />
@@ -157,8 +157,8 @@
             <setting id="BN3SM_Completion" name="Completion" defaultValue="true" />
         </setting>
         <setting id="BN3SA" name="Alt Splits">
-            <setting id="BN3SA_IceballM" name="Iceball M Chip Get" check="BattleRewardGet" value="12812" />
-            <setting id="BN3SA_YoyoG" name="Yo-Yo G Chip Get" check="BattleRewardGet" value="3141" />
+            <setting id="BN3SA_IceballM" name="Iceball M Chip Get" check="BattleRewardGet" value="6169" />
+            <setting id="BN3SA_YoyoG" name="Yo-Yo 1 G Chip Get" check="BattleRewardGet" value="3141" />
         </setting>
         <setting id="BN3SO" name="Optional Bosses">
             <setting id="BN3SO_FlashManAlpha" name="FlashMan Alpha / V2" check="BossDefeated" value="169" />
