@@ -64,6 +64,40 @@ startup
         return false;
 	});
 
+    vars.CheckFiresStarted = (Func<bool>)(() =>
+    {
+        if (vars.Helper["Progress"].Current == 85 && vars.Helper["MainArea"].Current == 0 && vars.Helper["SubArea"].Current == 3
+            && vars.Helper["GameState"].Changed && vars.Helper["GameState"].Current == 12)
+        {
+            return true;
+        }
+        return false;
+    });
+
+    vars.CheckRank10Fight = (Func<bool>)(() =>
+    {
+        if (vars.Helper["GameState"].Current != 8) return false;
+        if (vars.Helper["Progress"].Current == "98" && vars.Helper["MainArea"].Current == 147 && vars.Helper["SubArea"].Current == 3 &&
+            vars.Helper["EnemyNo1"].Current == 86 && vars.Helper["EnemyNo1HP"].Changed && vars.Helper["EnemyNo1HP"].Current == 0 && 
+            vars.Helper["EnemyNo2"].Current == 123 && vars.Helper["EnemyNo2HP"].Changed && vars.Helper["EnemyNo2HP"].Current == 0)
+        {
+            return true;
+        }
+        return false;
+    });
+
+	vars.CheckCompleted = (Func<bool>)(() =>
+	{
+		if (vars.Helper["Progress"].Current != 122 || vars.Helper["MainArea"].Current != 131 || vars.Helper["SubArea"].Current != 4) return false;
+        if (vars.Helper["FinalScene"].Old == 0 && vars.Helper["FinalScene"].Current == 1)
+        {
+            return true;
+        }
+
+		return false;
+	});
+
+
 
     vars.CheckBattleReward = (Func<ushort, bool>)((value) =>
     {
@@ -480,6 +514,7 @@ init
         emu.Make<short>("EnemyNo1HP", 0x02037368);
         emu.Make<short>("EnemyNo2HP", 0x0203743C);
         emu.Make<short>("EnemyNo3HP", 0x02037510);
+        emu.Make<byte>("FinalScene", 0x02004560);
 
         return true;
     });
@@ -623,6 +658,22 @@ split
 							return true;
 						}
 						break;
+                    
+                    case "FiresStarted":
+                        if (vars.CheckFiresStarted())
+                        {
+                            print("Fires Started Split");
+                            return true;
+                        }
+                        break;
+
+                    case "Rank10":
+                        if (vars.CheckRank10Fight())
+                        {
+                            print("Rank 10 Fight Won");
+                            vars.SplitonExitBattle = true;
+                        }
+                        break;
 
                     // case "BLicenseExam":
 					// 	{
@@ -640,6 +691,12 @@ split
 			}
 		}
 	}
+
+    if (vars.CheckCompleted())
+    {
+        print("Game Completed!");
+        return true;
+    }
     if (vars.SplitonExitBattle && vars.Helper["GameState"].Changed && vars.Helper["GameState"].Current == 4)
 	{
         print("Exiting Battle: SPLITTING");
