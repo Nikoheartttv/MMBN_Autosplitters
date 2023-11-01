@@ -64,8 +64,21 @@ startup
         return false;
 	});
 
+    vars.CheckToraJobsCompleted = (Func<bool>)(() =>
+    {
+        if (vars.Helper["Progress"].Current == 66 && vars.Helper["MainArea"].Current == 2 && vars.Helper["SubArea"].Current == 1)
+        {
+            if (vars.Helper["ToraJobs"].Old == 0 && vars.Helper["ToraJobs"].Current == 1)
+            {
+                return true;
+            }
+        }
+        return false;
+    });
+
     vars.CheckFiresStarted = (Func<bool>)(() =>
     {
+        if (vars.HasSplitForFiresStarted) return false;
         if (vars.Helper["Progress"].Current == 85 && vars.Helper["MainArea"].Current == 0 && vars.Helper["SubArea"].Current == 3
             && vars.Helper["GameState"].Changed && vars.Helper["GameState"].Current == 12)
         {
@@ -76,8 +89,9 @@ startup
 
     vars.CheckRank10Fight = (Func<bool>)(() =>
     {
+        // This version returns true during the battle
         if (vars.Helper["GameState"].Current != 8) return false;
-        if (vars.Helper["Progress"].Current == "98" && vars.Helper["MainArea"].Current == 147 && vars.Helper["SubArea"].Current == 3 &&
+        if (vars.Helper["Progress"].Current == 98 && vars.Helper["MainArea"].Current == 147 && vars.Helper["SubArea"].Current == 3 &&
             vars.Helper["EnemyNo1"].Current == 86 && vars.Helper["EnemyNo1HP"].Changed && vars.Helper["EnemyNo1HP"].Current == 0 && 
             vars.Helper["EnemyNo2"].Current == 123 && vars.Helper["EnemyNo2HP"].Changed && vars.Helper["EnemyNo2HP"].Current == 0)
         {
@@ -85,6 +99,17 @@ startup
         }
         return false;
     });
+
+    // vars.CheckRank10Fight = (Func<bool>)(() =>
+    // {
+    //     // This version returns true after the dialogue
+    //     if (vars.Helper["Rank10"].Old == 0 && vars.Helper["Rank10"].Current == 1)
+    //     {
+    //         return true;
+    //     }
+
+    //     return false;
+    // });
 
 	vars.CheckCompleted = (Func<bool>)(() =>
 	{
@@ -515,16 +540,25 @@ init
         emu.Make<short>("EnemyNo2HP", 0x0203743C);
         emu.Make<short>("EnemyNo3HP", 0x02037510);
         emu.Make<byte>("FinalScene", 0x02004560);
+        emu.Make<byte>("ToraJobs", 0x200218F);
+        emu.Make<byte>("Rank10", 0x20019DB);
 
         return true;
     });
 
     vars.SplitonExitBattle = false;
+    vars.HasSplitForFiresStarted = false;
 }
 
 start
 {
     return vars.Helper["StartSound"].Changed && vars.Helper["StartSound"].Current == 128;
+}
+
+onStart
+{
+    vars.SplitonExitBattle = false;
+    vars.HasSplitForFiresStarted = false;
 }
 
 update
@@ -659,10 +693,19 @@ split
 						}
 						break;
                     
+                    case "ToraJobs":
+                        if (vars.CheckToraJobsCompleted())
+                        {
+                            print("Tora Jobs Completed");
+                            return true;
+                        }
+                        break;
+
                     case "FiresStarted":
                         if (vars.CheckFiresStarted())
                         {
                             print("Fires Started Split");
+                            vars.HasSplitForFiresStarted = true;
                             return true;
                         }
                         break;

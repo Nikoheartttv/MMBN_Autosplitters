@@ -147,11 +147,11 @@
             <setting id="BN3SM_BubbleMan" name="BubbleMan" defaultValue="true" check="BossDefeated" value="176" />
             <setting id="BN3SM_BeachGauntlet" name="Beach Gauntlet" defaultValue="true" check="Progress" value="50" />
             <setting id="BN3SM_DesertMan" name="DesertMan" defaultValue="true" check="BossDefeated" value="180" />
-            <setting id="BN3SM_ToraJobs" name="Tora Jobs" defaultValue="true" />
+            <setting id="BN3SM_ToraJobs" name="Tora Jobs" defaultValue="true" check="ToraJobs" value="" />
             <setting id="BN3SM_PlantMan" name="PlantMan" defaultValue="true" check="BossDefeated" value="184" />
             <setting id="BN3SM_FiresStarted" name="Fires Started - SciLab Train Stairs End Convo" defaultValue="true" check="FiresStarted" value="" />
             <setting id="BN3SM_FlamMan" name="FlamMan" defaultValue="true" check="BossDefeated" value="188" />
-            <setting id="BN3SM_Rank10" name="Rank 10" defaultValue="true" />
+            <setting id="BN3SM_Rank10" name="Rank 10" defaultValue="true" check="Rank10" value="" />
             <setting id="BN3SM_DrillMan" name="DrillMan" defaultValue="true" check="BossDefeated" value="192" />
             <setting id="BN3SM_BubbleManAlpha" name="BubbleMan Alpha V2" defaultValue="true" check="BossDefeated" value="177" />
             <setting id="BN3SM_Completion" name="Completion" defaultValue="true" />
