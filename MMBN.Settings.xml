@@ -228,14 +228,13 @@
             <setting id="BN3SO_BassOmega" name="Bass Omega" check="BossDefeated" value="243" /> 
         </setting>
     </setting>
-    <setting id="BN4B" name="Megaman Battle Network 4 Blue Moon">
-        <setting id="BN4BS" name="Splits" defaultValue="true">
-            <setting id="BN4BSM_Test" name="Test" defaultValue="true" />
-        </setting>
-    </setting>
-    <setting id="BN4R" name="Megaman Battle Network 4 Red Sun">
-        <setting id="BN4RS" name="Splits" defaultValue="true">
-            <setting id="BN4RSM_Test" name="Test" defaultValue="true" />
+    
+    <setting id="BN4" name="Megaman Battle Network 4">
+        <setting id="BN4S" name="Splits" defaultValue="true">
+            <setting id="BN4S_BatsPlz" name="Bats Plz" defaultValue="true" check="Progress" value="7" />
+            <setting id="BN4S_DenPrelims_Blue" name="Den Prelims (Blue)" defaultValue="true" check="Progress" value="64" />
+            <setting id="BN4S_DenPrelims_Red" name="Den Prelims (Red)" defaultValue="true" check="Progress" value="61" />
+            <setting id="BN4S_Ponta" name="Ponta" defaultValue="true" check="BossDefeated" value="200" />
         </setting>
     </setting>
     <setting id="BN5C" name="Megaman Battle Network 5 Team Colonel">
