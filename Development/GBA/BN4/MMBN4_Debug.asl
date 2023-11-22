@@ -46,8 +46,10 @@ startup
 
 init
 {
+	vars.pontaDefeated = false;
 	vars.SplitOnExitBattle = false;
 	current.RAMOffset = 0;
+	current.StartCheck = 0;
 	current.MainArea = 0;
 	current.SubArea = 0;
 	current.Progress = 0;
@@ -63,6 +65,7 @@ init
 
 	vars.Offsets = new Dictionary<string, uint>()
 	{
+		{ "StartCheck", 0x02008040},
         { "RAMOffset", 0x02001550 },
         { "MainArea", 0x02002134 },
         { "SubArea", 0x02002135 },
@@ -76,6 +79,7 @@ init
         { "EnemyNo1HP", 0x0203B27C },
         { "EnemyNo2HP", 0x0203B354 },
         { "EnemyNo3HP", 0x0203B42C }
+		// { "EaglePoints", 0x020021BC }
 	};
 
     vars.Helper.Load = (Func<dynamic, bool>)(emu =>
@@ -101,6 +105,7 @@ update
 {
 	var RAMOffset = vars.Helper.ReadValue<uint>(vars.Offsets["RAMOffset"]);
 
+	current.StartCheck = vars.MMBN4ReadByte("StartCheck", RAMOffset);
 	current.MainArea = vars.MMBN4ReadByte("MainArea", RAMOffset);
 	current.SubArea = vars.MMBN4ReadByte("SubArea", RAMOffset);
 	current.Progress = vars.MMBN4ReadByte("Progress", RAMOffset);
@@ -128,6 +133,16 @@ update
 	if (current.EnemyNo3HP != old.EnemyNo3HP) print ("EnemyNo3HP changed from " + old.EnemyNo3HP.ToString() + " to " + current.EnemyNo3HP.ToString());
 }
 
+start
+{
+	if (old.StartCheck == 0 && current.StartCheck == 128) return true;
+}
+
+onStart
+{
+	vars.pontaDefeated = false;
+}
+
 split
 {
 	foreach (var element in vars.GameSettings.Descendants("setting"))
@@ -148,7 +163,15 @@ split
 								(current.EnemyNo3 == value && old.EnemyNo3HP != 0 && current.EnemyNo3HP == 0))
 							{
 								print("Boss Defeated! ID: " + value.ToString());
-								vars.SplitOnExitBattle = true;
+								if (value == 200)
+								{
+									if (!vars.pontaDefeated) vars.SplitOnExitBattle = true;
+									vars.pontaDefeated = true;
+								}
+								else 
+								{
+									vars.SplitOnExitBattle = true;
+								}
 							}
 							break;
 						}

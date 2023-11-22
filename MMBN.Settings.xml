@@ -235,6 +235,10 @@
             <setting id="BN4S_DenPrelims_Blue" name="Den Prelims (Blue)" defaultValue="true" check="Progress" value="64" />
             <setting id="BN4S_DenPrelims_Red" name="Den Prelims (Red)" defaultValue="true" check="Progress" value="61" />
             <setting id="BN4S_Ponta" name="Ponta" defaultValue="true" check="BossDefeated" value="200" />
+            <setting id="BN4S_Aquaman" name="Aquaman" defaultValue="true" check="BossDefeated" value="168" />
+            <setting id="BN4S_Sparkman" name="Sparkman" defaultValue="true" check="BossDefeated" value="192" />
+            <setting id="BN4S_Shademan" name="Shademan" defaultValue="true" check="BossDefeated" value="180" />
+            <setting id="BN4S_EaglePrelims" name="Eagle Prelims" defaultValue="true" check="Progress" value="82" />
         </setting>
     </setting>
     <setting id="BN5C" name="Megaman Battle Network 5 Team Colonel">
