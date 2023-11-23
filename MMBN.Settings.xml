@@ -235,10 +235,16 @@
             <setting id="BN4S_DenPrelims_Blue" name="Den Prelims (Blue)" defaultValue="true" check="Progress" value="64" />
             <setting id="BN4S_DenPrelims_Red" name="Den Prelims (Red)" defaultValue="true" check="Progress" value="61" />
             <setting id="BN4S_Ponta" name="Ponta" defaultValue="true" check="BossDefeated" value="200" />
-            <setting id="BN4S_Aquaman" name="Aquaman" defaultValue="true" check="BossDefeated" value="168" />
-            <setting id="BN4S_Sparkman" name="Sparkman" defaultValue="true" check="BossDefeated" value="192" />
-            <setting id="BN4S_Shademan" name="Shademan" defaultValue="true" check="BossDefeated" value="180" />
+            <setting id="BN4S_AquaMan" name="AquaMan" defaultValue="true" check="BossDefeated" value="168" />
+            <setting id="BN4S_SparkMan" name="SparkMan" defaultValue="true" check="BossDefeated" value="192" />
+            <setting id="BN4S_ShadeMan" name="ShadeMan" defaultValue="true" check="BossDefeated" value="180" />
             <setting id="BN4S_EaglePrelims" name="Eagle Prelims" defaultValue="true" check="Progress" value="82" />
+            <setting id="BN4S_VideoMan" name="VideoMan" defaultValue="true" check="BossDefeated" value="216" />
+            <setting id="BN4S_Riki" name="Riki" defaultValue="true" check="BossDefeated" value="205" />
+            <setting id="BN4S_WoodMan" name="WoodMan" defaultValue="true" check="BossDefeated" value="172" />
+            <setting id="BN4S_BlueMoonPrelims" name="Blue Moon Prelims" defaultValue="true" check="Progress" value="104" />
+            <setting id="BN4S_KendoMan" name="KendoMan" defaultValue="true" check="BossDefeated" value="212" />
+            <setting id="BN4S_JunkMan" name="JunkMan" defaultValue="true" check="BossDefeated" value="164" />
         </setting>
     </setting>
     <setting id="BN5C" name="Megaman Battle Network 5 Team Colonel">
