@@ -236,7 +236,9 @@
             <setting id="BN4S_DenPrelims_Red" name="Den Prelims (Red)" defaultValue="true" check="Progress" value="61" />
             <setting id="BN4S_Ponta" name="Ponta" defaultValue="true" check="BossDefeated" value="200" />
             <setting id="BN4S_AquaMan" name="AquaMan" defaultValue="true" check="BossDefeated" value="168" />
+            <setting id="BN4S_GutsMan" name="GutsMan" defaultValue="true" check="BossDefeated" value="132" />
             <setting id="BN4S_SparkMan" name="SparkMan" defaultValue="true" check="BossDefeated" value="192" />
+            <setting id="BN4S_FixPark" name="Fix Park" defaultValue="true" check="FixPark" value="" />
             <setting id="BN4S_ShadeMan" name="ShadeMan" defaultValue="true" check="BossDefeated" value="180" />
             <setting id="BN4S_EaglePrelims" name="Eagle Prelims" defaultValue="true" check="Progress" value="82" />
             <setting id="BN4S_VideoMan" name="VideoMan" defaultValue="true" check="BossDefeated" value="216" />
@@ -245,6 +247,8 @@
             <setting id="BN4S_BlueMoonPrelims" name="Blue Moon Prelims" defaultValue="true" check="Progress" value="104" />
             <setting id="BN4S_KendoMan" name="KendoMan" defaultValue="true" check="BossDefeated" value="212" />
             <setting id="BN4S_JunkMan" name="JunkMan" defaultValue="true" check="BossDefeated" value="164" />
+            <setting id="BN4S_FixTheNet" name="Fix the Net" defaultValue="true" check="FixTheNet" value="" />
+            <setting id="BN4S_Duo" name="Duo" defaultValue="true" check="Duo" value="" />
         </setting>
     </setting>
     <setting id="BN5C" name="Megaman Battle Network 5 Team Colonel">

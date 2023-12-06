@@ -42,6 +42,8 @@ startup
     }
 
     ReadSettingsXML(vars.GameSettings.Elements("setting"), null);
+
+	vars.ProgressReached = new List<byte>();
 }
 
 init
@@ -62,10 +64,11 @@ init
 	current.EnemyNo1HP = 0;
 	current.EnemyNo2HP = 0;
 	current.EnemyNo3HP = 0;
+	current.DuoCheck = 0;
 
 	vars.Offsets = new Dictionary<string, uint>()
 	{
-		{ "StartCheck", 0x02008040},
+		{ "StartCheck", 0x0200A81B },
         { "RAMOffset", 0x02001550 },
         { "MainArea", 0x02002134 },
         { "SubArea", 0x02002135 },
@@ -78,7 +81,8 @@ init
         { "BattleReward", 0x0200F887 },
         { "EnemyNo1HP", 0x0203B27C },
         { "EnemyNo2HP", 0x0203B354 },
-        { "EnemyNo3HP", 0x0203B42C }
+        { "EnemyNo3HP", 0x0203B42C },
+		{ "DuoCheck", 0x2007BB3 }
 		// { "EaglePoints", 0x020021BC }
 	};
 
@@ -118,24 +122,37 @@ update
 	current.EnemyNo1HP = vars.MMBN4ReadUShort("EnemyNo1HP", RAMOffset);
 	current.EnemyNo2HP = vars.MMBN4ReadUShort("EnemyNo2HP", RAMOffset);
 	current.EnemyNo3HP = vars.MMBN4ReadUShort("EnemyNo3HP", RAMOffset);
+	current.DuoCheck = vars.MMBN4ReadByte("DuoCheck", RAMOffset);
 
 	if (current.MainArea != old.MainArea) print ("MainArea changed from " + old.MainArea.ToString() + " to " + current.MainArea.ToString());
 	if (current.SubArea != old.SubArea) print ("SubArea changed from " + old.SubArea.ToString() + " to " + current.SubArea.ToString());
-	if (current.Progress != old.Progress) print ("Progress changed from " + old.Progress.ToString() + " to " + current.Progress.ToString());
+	if (current.Progress != old.Progress)
+	{
+		print ("PROGRESS changed from " + old.Progress.ToString() + " to " + current.Progress.ToString());
+		if (current.Progress == 64)
+		{
+			print("HOLY SHIT!");
+			print("HOLY SHIT!");
+			print("HOLY SHIT!");
+			print("HOLY SHIT!");
+			print("HOLY SHIT!");
+		}
+	}
 	if (current.BattleState != old.BattleState) print ("BattleState changed from " + old.BattleState.ToString() + " to " + current.BattleState.ToString());
 	if (current.EnemyNo1 != old.EnemyNo1) print ("EnemyNo1 changed from " + old.EnemyNo1.ToString() + " to " + current.EnemyNo1.ToString());
 	if (current.EnemyNo2 != old.EnemyNo2) print ("EnemyNo2 changed from " + old.EnemyNo2.ToString() + " to " + current.EnemyNo2.ToString());
 	if (current.EnemyNo3 != old.EnemyNo3) print ("EnemyNo3 changed from " + old.EnemyNo3.ToString() + " to " + current.EnemyNo3.ToString());
 	if (current.GameState != old.GameState) print ("GameState changed from " + old.GameState.ToString() + " to " + current.GameState.ToString());
 	// if (current.BattleReward != old.BattleReward) print ("BattleReward changed from " + old.BattleReward.ToString() + " to " + current.BattleReward.ToString());
-	if (current.EnemyNo1HP != old.EnemyNo1HP) print ("EnemyNo1HP changed from " + old.EnemyNo1HP.ToString() + " to " + current.EnemyNo1HP.ToString());
-	if (current.EnemyNo2HP != old.EnemyNo2HP) print ("EnemyNo2HP changed from " + old.EnemyNo2HP.ToString() + " to " + current.EnemyNo2HP.ToString());
-	if (current.EnemyNo3HP != old.EnemyNo3HP) print ("EnemyNo3HP changed from " + old.EnemyNo3HP.ToString() + " to " + current.EnemyNo3HP.ToString());
+	// if (current.EnemyNo1HP != old.EnemyNo1HP) print ("EnemyNo1HP changed from " + old.EnemyNo1HP.ToString() + " to " + current.EnemyNo1HP.ToString());
+	// if (current.EnemyNo2HP != old.EnemyNo2HP) print ("EnemyNo2HP changed from " + old.EnemyNo2HP.ToString() + " to " + current.EnemyNo2HP.ToString());
+	// if (current.EnemyNo3HP != old.EnemyNo3HP) print ("EnemyNo3HP changed from " + old.EnemyNo3HP.ToString() + " to " + current.EnemyNo3HP.ToString());
+	if (current.StartCheck != old.StartCheck) print ("StartCheck changed from " + old.StartCheck.ToString() + " to " + current.StartCheck.ToString());
 }
 
 start
 {
-	if (old.StartCheck == 0 && current.StartCheck == 128) return true;
+	if (old.StartCheck == 0 && current.StartCheck == 2) return true;
 }
 
 onStart
@@ -181,11 +198,48 @@ split
 							byte value = Byte.Parse(element.Attribute("value").Value);
 							if (current.Progress == value && current.Progress != old.Progress) 
 							{
-								print("SPLITTING");
-								return true;
+								if (!vars.ProgressReached.Contains(current.Progress))
+								{
+									vars.ProgressReached.Add(current.Progress);
+									print("SPLITTING");
+									return true;
+								}
 							}
 							break;
 						}
+
+					case "FixPark":
+						{
+							if (current.MainArea == 146 && current.SubArea == 2
+								&& (current.EnemyNo1 == 31 && current.EnemyNo2 == 31 && current.EnemyNo3 == 31) &&
+								(old.EnemyNo1HP != 0 || old.EnemyNo2HP != 0 || old.EnemyNo3HP != 0) &&
+								(current.EnemyNo1HP == 0 && current.EnemyNo2HP == 0 && current.EnemyNo3HP == 0))
+								{
+									print("We Fixed the Park!");
+									vars.SplitOnExitBattle = true;
+								}
+						}
+						break;
+					
+					case "FixTheNet":
+						{
+							if ((current.EnemyNo1 == 104 && current.EnemyNo2 == 20 && current.EnemyNo3 == 196) &&
+								(old.EnemyNo1HP != 0 || old.EnemyNo2HP != 0 || old.EnemyNo3HP != 0) &&
+								(current.EnemyNo1HP == 0 && current.EnemyNo2HP == 0 && current.EnemyNo3HP == 0))
+							{
+								print("We Fixed the Net!");
+								vars.SplitOnExitBattle = true;
+							}
+							break;
+						}
+					
+					case "Duo":
+						{
+							if (current.MainArea == 130 && current.SubArea == 4
+							&& current.EnemyNo1 == 224 && old.DuoCheck == 0 && current.DuoCheck == 3) return true;
+						}
+						break;
+
 				
 				}
 			}
