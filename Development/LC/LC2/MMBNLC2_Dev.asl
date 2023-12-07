@@ -4,26 +4,74 @@ state("MMBN_LC2")
 	byte LC2_GameChoice : 0xABEF764; // BN4RS - 5/BM - 6,  BN5TM - 7/TC - 8, BN6CG - 9/CF - 10
 	byte LC2_GameSelected : 0xABEFE68; // when Start hit, once audio selection sound occurs, goes from 1 to 0
 
-    // --- Mega Man Battle Network 4
-
-
-
-
+  // --- Mega Man Battle Network 4
+	// byte MMBN4_ENo1 : 0x3D3A828, 0x1F;
+	// short MMBN4_ENo1HP : 0x3D3A828, 0x34;
+	// byte MMBN4_ENo2 : 0x3D3A828, 0xF7;
+	// short MMBN4_ENo2HP : 0x3D3A828, 0x10C;
+	// byte MMBN4_ENo3 : 0x3D3A828, 0x1CF;
+	// short MMBN4_ENo3HP : 0x3D3A828, 0x1E4;
+	// byte MMBN4_StartCheck : 0x3D3B239, 0x22, 0x1A8, 0x101, 0x2, 0x579;
 }
 
 startup
 {
-  vars.menuTarget = new SigScanTarget(13,"89 04 0A 48 8D 43 40");
+	
 }
 
 init
 {
-  var module = modules.First();
-  var scanner = new SignatureScanner(game, module.BaseAddress, module.ModuleMemorySize);
-  var menuPtr = scanner.Scan(vars.menuTarget);
-  
-  print("[DEBUG Salt] menuPtr: " + menuPtr.ToString("X"));
+	current.MainArea = 0;
+	current.SubArea = 0;
+	current.Progress = 0;
+	current.StartCheck = 0;
+	current.EnemyNo1 = 0;
+	current.EnemyNo2 = 0;
+	current.EnemyNo3 = 0;
+	current.EnemyNo1HP = 0;
+	current.EnemyNo2HP = 0;
+	current.EnemyNo3HP = 0;
 }
+
+update
+{
+	int RAMOffset = game.ReadValue<int>((IntPtr)0x80207400);
+	current.MainArea = game.ReadValue<byte>(((IntPtr)0x80207484 + RAMOffset));
+	current.SubArea = game.ReadValue<byte>(((IntPtr)0x80207485 + RAMOffset));
+	current.Progress = game.ReadValue<byte>(((IntPtr)0x80207486 + RAMOffset));
+	current.StartCheck = game.ReadValue<byte>((IntPtr)0x80207579);
+	current.EnemyNo1 = game.ReadValue<byte>((IntPtr)0x8020B5A7);
+	current.EnemyNo1HP = game.ReadValue<ushort>((IntPtr)0x8020B5BC);
+	current.EnemyNo2 = game.ReadValue<byte>((IntPtr)0x8020B67F);
+	current.EnemyNo2HP = game.ReadValue<ushort>((IntPtr)0x8020B694);
+	current.EnemyNo3 = game.ReadValue<byte>((IntPtr)0x8020B757);
+	current.EnemyNo3HP = game.ReadValue<ushort>((IntPtr)0x8020B76C);
+
+	if (current.MainArea != old.MainArea) print ("Main Area changed from " + old.MainArea.ToString() + " to " + current.MainArea.ToString());
+	if (current.SubArea != old.SubArea) print ("Sub Area changed from " + old.SubArea.ToString() + " to " + current.SubArea.ToString());
+	if (current.Progress != old.Progress) print ("Progress changed from " + old.Progress.ToString() + " to " + current.Progress.ToString());
+	if (current.StartCheck != old.StartCheck) print ("StartCheck changed from " + old.StartCheck.ToString() + " to " + current.StartCheck.ToString());
+	if (current.EnemyNo1 != old.EnemyNo1) print ("EnemyNo1 changed from " + old.EnemyNo1.ToString() + " to " + current.EnemyNo1.ToString());
+	if (current.EnemyNo2 != old.EnemyNo2) print ("EnemyNo2 changed from " + old.EnemyNo2.ToString() + " to " + current.EnemyNo2.ToString());
+	if (current.EnemyNo3 != old.EnemyNo3) print ("EnemyNo3 changed from " + old.EnemyNo3.ToString() + " to " + current.EnemyNo3.ToString());
+	if (current.EnemyNo1HP != old.EnemyNo1HP) print ("EnemyNo1HP changed from " + old.EnemyNo1HP.ToString() + " to " + current.EnemyNo1HP.ToString());
+	if (current.EnemyNo2HP != old.EnemyNo2HP) print ("EnemyNo2HP changed from " + old.EnemyNo2HP.ToString() + " to " + current.EnemyNo2HP.ToString());
+	if (current.EnemyNo3HP != old.EnemyNo3HP) print ("EnemyNo3HP changed from " + old.EnemyNo3HP.ToString() + " to " + current.EnemyNo3HP.ToString());
+	
+
+	// print(game.MainModule.BaseAddress.ToString("X"));
+	// print(current.RAMOffset.ToString());
+	
+	//  print(intValue.ToString());
+	//  print("RAMOffset changd to " + current.RAMOffset.ToString());
+}
+
+start
+{
+	return old.StartCheck == 0 && current.StartCheck == 255;
+}
+
+
 
 // startup
 // {
