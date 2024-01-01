@@ -8,19 +8,20 @@ state("MMBN_LC1", "30.10.23")
 	byte MainArea : 0x29C9930, 0xB8, 0x4;
 	byte SubArea : 0x29C9930, 0xB8, 0x5;
 	byte Progress : 0x29C9930, 0xB8, 0x6;
+	// int KeyItems : 0x29EE840, 0xB8, 0xC0;
 	byte EnemyNo1 : 0x29C9930, 0x50, 0x0;
 	byte EnemyNo2 : 0x29C9930, 0x50, 0x4;
 	byte EnemyNo3 : 0x29C9930, 0x50, 0x8;
 	short EnemyNo1HP : 0x29CE2A8, 0x20;
 	short EnemyNo2HP : 0x29CE2A8, 0xE0;
 	short EnemyNo3HP : 0x229CE2A8, 0x1A0;
-	byte Key_Hig_Memo : 0x29C9930, 0xB8, 0xF4; // double check
-	byte Key_Lab_Memo : 0x29C9930, 0xB8, 0xF5; // double check
-	byte Key_Yuri_Memo : 0x29C9930, 0xB8, 0xF6; // double check
-	byte Key_Pa_Memo : 0x29C9930, 0xB8, 0xF7; // double check
+	byte Key_Hig_Memo : 0x29C9930, 0xB8, 0xF4;
+	byte Key_Lab_Memo : 0x29C9930, 0xB8, 0xF5;
+	byte Key_Yuri_Memo : 0x29C9930, 0xB8, 0xF6;
+	byte Key_Pa_Memo : 0x29C9930, 0xB8, 0xF7;
 	byte NewGameStart : 0x29CA9EA; 
 	// short MMBN1_FinalSplit : 0x29F21F8, 0x4;
-	// FinalScene / FinalDing
+	// GameLoadingFlag / BattleState / StartSound / FinalScene / FinalDing
 }
 
 state("MMBN_LC1", "Unknown Version") 
@@ -72,6 +73,60 @@ startup
 			ReadSettingsXML(element.Elements("setting"), element.Attribute("id").Value);
 		}
 	};
+
+    // vars.CheckBossDeleted = (Func<byte, bool>)((bossId) =>
+	// {
+    //     if (current.GameState != 8) return false;
+	// 	if (current.EnemyNo1 == bossId && old.EnemyNo1HP > 0 && current.EnemyNo1HP == 0 ||
+	// 		current.EnemyNo2 == bossId && old.EnemyNo2HP > 0 && current.EnemyNo2HP == 0 ||
+	// 		current.EnemyNo3 == bossId && old.EnemyNo3HP > 0 && current.EnemyNo3HP == 0 )
+	// 	{
+	// 		return true;
+	// 	}
+
+	// 	return false;
+	// });
+
+	// vars.CheckBossDefeated = (Func<byte, bool>)((bossId) =>
+	// {
+	// 	if (current.EnemyNo1 == bossId && current.EnemyNo1HP == 0 ||
+	// 		current.EnemyNo2 == bossId && current.EnemyNo2HP == 0 ||
+	// 		current.EnemyNo3 == bossId && current.EnemyNo3HP == 0)
+	// 	{
+	// 		return old.GameState == 8 && current.GameState == 4;
+	// 	}
+	// 	return false;
+	// });
+
+    // vars.CheckProgress = (Func<byte, bool>)((value) =>
+	// {
+	// 	if (old.Progress != current.Progress && current.Progress == value) return true;
+	// 	return false;
+	// });
+
+	// vars.CheckMemos = (Func<bool>)(() =>
+    // {
+	// 	if (vars.MemosSplitDone) return false;
+    //     if (current.Key_Hig_Memo == 1 && current.Key_Lab_Memo == 1 &&
+    //         current.Key_Pa_Memo == 1 && current.Key_Yuri_Memo == 1 &&
+	// 		current.MainArea == 2 && current.SubArea == 5 &&
+	// 		old.GameState != current.GameState && current.GameState == 12)
+	// 	{
+	// 		return true;
+	// 	}
+        
+    //     return false;
+    // });
+
+	// vars.CheckCompleted = (Func<bool>)(() =>
+	// {
+    //     if (current.FinalScene == 64 && old.FinalDing != current.FinalDing && current.FinalDing == 128)
+    //     {
+    //         return true;
+    //     }
+
+	// 	return false;
+	// });
 
     var xml = System.Xml.Linq.XDocument.Load(@"Components/MMBN.Settings.xml");
     foreach (var element in xml.Element("settings").Elements("setting"))
@@ -126,7 +181,7 @@ init
 	// current.Key_Yuri_Memo = 0;
 	// current.Key_Pa_Memo = 0;
 
-	vars.MemosSplitDone = false;
+	vars.HasBeeninCoffeeMachine = false;
 	vars.SplitOnExitBattle = false;
 }
 
@@ -137,12 +192,13 @@ start
 
 onStart
 {
-	vars.MemosSplitDone = false;
+	vars.HasBeeninCoffeeMachine = false;
 	vars.SplitOnExitBattle = false;
 }
 
 update
 {
+	//vars.CheckHasBeenInCoffeeMachine(); ??
     if (old.NewGameStart != current.NewGameStart && current.NewGameStart == 128)
     {
         print("New Game Started changed");
@@ -190,6 +246,19 @@ split
 						}
 						break;
 
+					case "BossRush":
+						{
+							byte value = Byte.Parse(element.Attribute("value").Value);
+							if (current.MainArea == 133) {
+								if (current.EnemyNo1 == value && current.EnemyNo1HP == 0 && old.EnemyNo1HP != 0)
+								{
+									print("Boss Rush Defeated: " + element.Attribute("name").Value);
+									vars.SplitOnExitBattle = true;
+								} 
+							}
+						}
+						break;
+
 					case "Progress":
 						{
 							byte value = Byte.Parse(element.Attribute("value").Value);
@@ -201,22 +270,13 @@ split
 						}
 						break;
 
-                    case "Memos":
-                        {
-							if (!vars.MemosSplitDone)
-							{
-								if (current.Key_Hig_Memo == 1 && current.Key_Lab_Memo == 1 &&
-									current.Key_Pa_Memo == 1 && current.Key_Yuri_Memo == 1 &&
-									current.MainArea == 2 && current.SubArea == 5 &&
-									old.GameState != current.GameState && current.GameState == 12)
-								{
-									print("Memos Split");
-									vars.MemosSplitDone = true;
-									return true;
-								}
-							}
-                        }
-                        break;
+					case "Doghouse":
+						if (old.MainArea == 140 && old.SubArea == 2 && current.MainArea == 0 && current.SubArea == 0)
+						{
+							print("Doghouse Split");
+							return true;
+						}
+						break;
 					
 				}
 				
@@ -226,14 +286,150 @@ split
 
 	if (vars.SplitOnExitBattle && old.GameState == 12 && current.GameState != 12)
 	{
-        print("Exiting Battle: SPLITTING");
+        print("Splitting on exit battle");
 		vars.SplitOnExitBattle = false;
 		return true;
 	}
 
-	// if (current.FinalScene == 64 && old.FinalDing != current.FinalDing && current.FinalDing == 128)
-    // {
-	// 	print("Final Ding Split");
-	// 	return true;
-	// }
+    // if (vars.CheckCompleted()) return true;
+}
+
+
+
+
+
+
+
+
+    vars.CheckHasBeenInCoffeeMachine = (Action)(() =>
+    {
+        if (!vars.HasBeeninCoffeeMachine)
+        {
+            if (vars.Helper["MainArea"].Current == 140 && vars.Helper["SubArea"].Current == 5) vars.HasBeeninCoffeeMachine = true;
+        }
+    });
+
+    vars.CheckBLicense = (Func<bool>)(() =>
+	{
+		if (vars.Helper["Progress"].Current == 9 && vars.Helper["MainArea"].Current == 144 && vars.Helper["SubArea"].Current == 4)
+        {
+            if (vars.Helper["EnemyNo1"].Current == 29 && vars.Helper["EnemyNo1HP"].Current == 0 ||
+			    vars.Helper["EnemyNo2"].Current == 29 && vars.Helper["EnemyNo2HP"].Current == 0 ||
+			    vars.Helper["EnemyNo3"].Current == 7 && vars.Helper["EnemyNo3HP"].Current == 0)
+            {
+                return vars.Helper["GameState"].Old == 8 && vars.Helper["GameState"].Current == 4;
+            }
+        }
+        return false;
+	});
+
+    vars.CheckALicensePrelims = (Func<bool>)(() =>
+    {
+        if (vars.HasBeeninCoffeeMachine && vars.Helper["Progress"].Current == 18 &&
+            vars.Helper["MainArea"].Old == 145 && vars.Helper["SubArea"].Old == 3 &&
+            vars.Helper["MainArea"].Current == 1 && vars.Helper["SubArea"].Current == 2)
+            {
+                return true;
+            } 
+        return false;
+    });
+
+    vars.CheckALicense = (Func<bool>)(() =>
+	{
+		if (vars.Helper["Progress"].Current == 19 && vars.Helper["MainArea"].Current == 144 && vars.Helper["SubArea"].Current == 4)
+        {
+            if (vars.Helper["EnemyNo1"].Current == 69 && vars.Helper["EnemyNo1HP"].Current == 0 ||
+			    vars.Helper["EnemyNo2"].Current == 38 && vars.Helper["EnemyNo2HP"].Current == 0 ||
+			    vars.Helper["EnemyNo3"].Current == 24 && vars.Helper["EnemyNo3HP"].Current == 0)
+            {
+                return vars.Helper["GameState"].Old == 8 && vars.Helper["GameState"].Current == 4;
+            }
+        }
+        return false;
+	});
+
+    vars.CheckProgress = (Func<byte, bool>)((value) =>
+	{
+		if (vars.Helper == null || vars.Helper["Progress"] == null) return false;
+		if (vars.Helper["Progress"].Changed && vars.Helper["Progress"].Current == value) return true;
+		return false;
+	});
+
+	vars.CheckCompleted = (Func<bool>)(() =>
+	{
+		if (vars.Helper["Progress"].Current != 72 || vars.Helper["MainArea"].Current != 2 || vars.Helper["SubArea"].Current != 4) return false;
+        if (vars.Helper["FinalDing"].Old == 0 && vars.Helper["FinalDing"].Current == 128)
+        {
+            return true;
+        }
+
+		return false;
+	});
+
+	vars.CheckHeatData = (Func<bool>)(() =>
+	{
+		if (vars.Helper["KeyItem_HeatData"].Old == 0 && vars.Helper["KeyItem_HeatData"].Current == 1) return true;
+		return false;
+	});
+	
+
+					
+				
+					case "BLicense":
+						if (vars.CheckBLicense())
+						{
+							print("BLicense Split");
+							return true;
+						}
+						break;
+
+
+					if (current.Progress == 9 && current.MainArea == 144 && current.SubArea"].Current == 4)
+					{
+						if (vars.Helper["EnemyNo1"].Current == 29 && vars.Helper["EnemyNo1HP"].Current == 0 ||
+							vars.Helper["EnemyNo2"].Current == 29 && vars.Helper["EnemyNo2HP"].Current == 0 ||
+							vars.Helper["EnemyNo3"].Current == 7 && vars.Helper["EnemyNo3HP"].Current == 0)
+						{
+							return vars.Helper["GameState"].Old == 8 && vars.Helper["GameState"].Current == 4;
+						}
+					}
+					return false;
+
+					case "ALicensePrelims":
+						if (vars.CheckALicensePrelims())
+						{
+							print("ALicensePrelims Split");
+							return true;
+						}
+						break;
+
+					case "ALicense":
+						if (vars.CheckALicense())
+						{
+							print("ALicense Split");
+							return true;
+						}
+						break;
+
+					case "HeatData":
+						if (vars.CheckHeatData())
+						{
+							print("Heat Data Split");
+							return true;
+						}
+						break;
+				}
+				
+			}
+		}
+	}
+
+	if (vars.SplitOnExitBattle && old.GameState == 12 && current.GameState != 12)
+	{
+        print("Splitting on exit battle");
+		vars.SplitOnExitBattle = false;
+		return true;
+	}
+
+    if (vars.CheckCompleted()) return true;
 }

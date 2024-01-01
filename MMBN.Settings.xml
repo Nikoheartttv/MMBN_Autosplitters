@@ -15,7 +15,7 @@
             <setting id="BN1SM_Memos" name="Memos" defaultValue="true" check="Memos" value="" />
             <setting id="BN1SM_BombMan" name="BombMan" defaultValue="true" check="BossDefeated" value="123" />
             <setting id="BN1SM_MagicMan" name="MagicMan" defaultValue="true" check="BossDefeated" value="141" />
-            <setting id="BN1SM_LifeVirus" name="LifeVirus" defaultValue="true" check="BossDefeated" value="141" />
+            <setting id="BN1SM_LifeVirus" name="LifeVirus" defaultValue="true" check="BossDefeated" value="144" />
             <setting id="BN1SM_Ding" name="Ding" defaultValue="true" check="Completed" />
         </setting>
         <setting id="BN1SMB" name="Mini-Bosses" defaultValue="true">
