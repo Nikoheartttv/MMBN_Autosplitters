@@ -1,10 +1,6 @@
 state("MMBN_LC1", "30.10.23") 
 {
-	// --- Main Menu of Legacy Collection
-	byte LC1_GameChoice : 0x9875A74; // BN1 = 0, BN2 = 2, BN3W = 3, BN3B = 4
-	byte LC1_GameSelected : 0x2803B70; // when chosen, value turns 0
-
-	byte GameState : 0x29C9930, 0xB8, 0x0; // 28 on ng/continue select - 0 is hit when selecting "Return to Title Screen"
+	byte GameState : 0x29C9930, 0xB8, 0x0;
 	byte MainArea : 0x29C9930, 0xB8, 0x4;
 	byte SubArea : 0x29C9930, 0xB8, 0x5;
 	byte Progress : 0x29C9930, 0xB8, 0x6;
@@ -13,24 +9,18 @@ state("MMBN_LC1", "30.10.23")
 	byte EnemyNo3 : 0x29C9930, 0x50, 0x8;
 	short EnemyNo1HP : 0x29CE2A8, 0x20;
 	short EnemyNo2HP : 0x29CE2A8, 0xE0;
-	short EnemyNo3HP : 0x229CE2A8, 0x1A0;
+	short EnemyNo3HP : 0x29CE2A8, 0x1A0;
 	byte Key_Hig_Memo : 0x29C9930, 0xB8, 0xF4;
 	byte Key_Lab_Memo : 0x29C9930, 0xB8, 0xF5;
 	byte Key_Yuri_Memo : 0x29C9930, 0xB8, 0xF6;
 	byte Key_Pa_Memo : 0x29C9930, 0xB8, 0xF7;
-	byte NewGameStart : 0x29CA9EA;
+	byte NewGameStart : 0x29C9930, 0xB8, 0x18;
 	byte PETDing : 0x29CE158, 0x634; 
-	// short MMBN1_FinalSplit : 0x29F21F8, 0x4;
-	// FinalScene / FinalDing
 }
 
 state("MMBN_LC1", "13.10.23") 
 {
-	// --- Main Menu of Legacy Collection
-	byte LC1_GameChoice : 0x9875A74; // BN1 = 0, BN2 = 2, BN3W = 3, BN3B = 4
-	byte LC1_GameSelected : 0x2803B70; // when chosen, value turns 0
-
-	byte GameState : 0x29C9930, 0xB8, 0x0; // 28 on ng/continue select - 0 is hit when selecting "Return to Title Screen"
+	byte GameState : 0x29C9930, 0xB8, 0x0;
 	byte MainArea : 0x29C9930, 0xB8, 0x4;
 	byte SubArea : 0x29C9930, 0xB8, 0x5;
 	byte Progress : 0x29C9930, 0xB8, 0x6;
@@ -39,73 +29,79 @@ state("MMBN_LC1", "13.10.23")
 	byte EnemyNo3 : 0x29C9930, 0x50, 0x8;
 	short EnemyNo1HP : 0x29CE2A8, 0x20;
 	short EnemyNo2HP : 0x29CE2A8, 0xE0;
-	short EnemyNo3HP : 0x229CE2A8, 0x1A0;
-	byte Key_Hig_Memo : 0x29C9930, 0xB8, 0xF4; // double check
-	byte Key_Lab_Memo : 0x29C9930, 0xB8, 0xF5; // double check
-	byte Key_Yuri_Memo : 0x29C9930, 0xB8, 0xF6; // double check
-	byte Key_Pa_Memo : 0x29C9930, 0xB8, 0xF7; // double check
-	byte NewGameStart : 0x29CA9EA; 
-	// short MMBN1_FinalSplit : 0x29F21F8, 0x4;
-	// FinalScene / FinalDing
+	short EnemyNo3HP : 0x29CE2A8, 0x1A0;
+	byte Key_Hig_Memo : 0x29C9930, 0xB8, 0xF4;
+	byte Key_Lab_Memo : 0x29C9930, 0xB8, 0xF5;
+	byte Key_Yuri_Memo : 0x29C9930, 0xB8, 0xF6;
+	byte Key_Pa_Memo : 0x29C9930, 0xB8, 0xF7;
+	byte NewGameStart : 0x29C9930, 0xB8, 0x18;
+	byte PETDing : 0x29CE158, 0x634;
 }
 
 state("MMBN_LC1", "11.09.23") 
 {
-	// --- Main Menu of Legacy Collection
-	byte LC1_GameChoice : 0x9875A74; // BN1 = 0, BN2 = 2, BN3W = 3, BN3B = 4
-	byte LC1_GameSelected : 0x2803B70; // when chosen, value turns 0
-
-	byte GameState : 0x29C9930, 0xB8, 0x0; // 28 on ng/continue select - 0 is hit when selecting "Return to Title Screen"
-	byte MainArea : 0x29C9930, 0xB8, 0x4;
-	byte SubArea : 0x29C9930, 0xB8, 0x5;
-	byte Progress : 0x29C9930, 0xB8, 0x6;
-	byte EnemyNo1 : 0x29C9930, 0x50, 0x0;
-	byte EnemyNo2 : 0x29C9930, 0x50, 0x4;
-	byte EnemyNo3 : 0x29C9930, 0x50, 0x8;
-	short EnemyNo1HP : 0x29CE2A8, 0x20;
-	short EnemyNo2HP : 0x29CE2A8, 0xE0;
-	short EnemyNo3HP : 0x229CE2A8, 0x1A0;
-	byte Key_Hig_Memo : 0x29C9930, 0xB8, 0xF4; // double check
-	byte Key_Lab_Memo : 0x29C9930, 0xB8, 0xF5; // double check
-	byte Key_Yuri_Memo : 0x29C9930, 0xB8, 0xF6; // double check
-	byte Key_Pa_Memo : 0x29C9930, 0xB8, 0xF7; // double check
-	byte NewGameStart : 0x29CA9EA; 
-	// short MMBN1_FinalSplit : 0x29F21F8, 0x4;
-	// FinalScene / FinalDing
+	byte GameState : 0x29F08F0, 0xB8, 0x0;
+	byte MainArea : 0x29F08F0, 0xB8, 0x4;
+	byte SubArea : 0x29F08F0, 0xB8, 0x5;
+	byte Progress : 0x29F08F0, 0xB8, 0x6;
+	byte EnemyNo1 : 0x29F08F0, 0x50, 0x0;
+	byte EnemyNo2 : 0x29F08F0, 0x50, 0x4;
+	byte EnemyNo3 : 0x29F08F0, 0x50, 0x8;
+	short EnemyNo1HP : 0x29F5268, 0x20;
+	short EnemyNo2HP : 0x29F5268, 0xE0;
+	short EnemyNo3HP : 0x29F5268, 0x1A0;
+	byte Key_Hig_Memo : 0x29F08F0, 0xB8, 0xF4;
+	byte Key_Lab_Memo : 0x29F08F0, 0xB8, 0xF5;
+	byte Key_Yuri_Memo : 0x29F08F0, 0xB8, 0xF6;
+	byte Key_Pa_Memo : 0x29F08F0, 0xB8, 0xF7;
+	byte NewGameStart : 0x29F08F0, 0xB8, 0x18;
+	byte PETDing : 0x29F5118, 0x634;
 }
 
 state("MMBN_LC1", "04.07.23") 
 {
-	// --- Main Menu of Legacy Collection
-	byte LC1_GameChoice : 0x9875A74; // BN1 = 0, BN2 = 2, BN3W = 3, BN3B = 4
-	byte LC1_GameSelected : 0x2803B70; // when chosen, value turns 0
+	byte GameState : 0x29F3940, 0xB8, 0x0;
+	byte MainArea : 0x29F3940, 0xB8, 0x4;
+	byte SubArea : 0x29F3940, 0xB8, 0x5;
+	byte Progress : 0x29F3940, 0xB8, 0x6;
+	byte EnemyNo1 : 0x29F3940, 0x50, 0x0;
+	byte EnemyNo2 : 0x29F3940, 0x50, 0x4;
+	byte EnemyNo3 : 0x29F3940, 0x50, 0x8;
+	short EnemyNo1HP : 0x29F82B8, 0x20;
+	short EnemyNo2HP : 0x29F82B8, 0xE0;
+	short EnemyNo3HP : 0x29F82B8, 0x1A0;
+	byte Key_Hig_Memo : 0x29F3940, 0xB8, 0xF4;
+	byte Key_Lab_Memo : 0x29F3940, 0xB8, 0xF5;
+	byte Key_Yuri_Memo : 0x29F3940, 0xB8, 0xF6;
+	byte Key_Pa_Memo : 0x29F3940, 0xB8, 0xF7;
+	byte NewGameStart : 0x29F3940, 0xB8, 0x18;
+	byte PETDing : 0x29F8168, 0x634;  
 
-	byte GameState : 0x29C9930, 0xB8, 0x0; // 28 on ng/continue select - 0 is hit when selecting "Return to Title Screen"
-	byte MainArea : 0x29C9930, 0xB8, 0x4;
-	byte SubArea : 0x29C9930, 0xB8, 0x5;
-	byte Progress : 0x29C9930, 0xB8, 0x6;
-	byte EnemyNo1 : 0x29C9930, 0x50, 0x0;
-	byte EnemyNo2 : 0x29C9930, 0x50, 0x4;
-	byte EnemyNo3 : 0x29C9930, 0x50, 0x8;
-	short EnemyNo1HP : 0x29CE2A8, 0x20;
-	short EnemyNo2HP : 0x29CE2A8, 0xE0;
-	short EnemyNo3HP : 0x229CE2A8, 0x1A0;
-	byte Key_Hig_Memo : 0x29C9930, 0xB8, 0xF4; // double check
-	byte Key_Lab_Memo : 0x29C9930, 0xB8, 0xF5; // double check
-	byte Key_Yuri_Memo : 0x29C9930, 0xB8, 0xF6; // double check
-	byte Key_Pa_Memo : 0x29C9930, 0xB8, 0xF7; // double check
-	byte NewGameStart : 0x29CA9EA; 
-	// short MMBN1_FinalSplit : 0x29F21F8, 0x4;
-	// FinalScene / FinalDing
 }
 
 state("MMBN_LC1", "14.04.23") 
 {
-	// --- Main Menu of Legacy Collection
-	byte LC1_GameChoice : 0x9875A74; // BN1 = 0, BN2 = 2, BN3W = 3, BN3B = 4
-	byte LC1_GameSelected : 0x2803B70; // when chosen, value turns 0
+	byte GameState : 0x29EE840, 0xB8, 0x0;
+	byte MainArea : 0x29EE840, 0xB8, 0x4;
+	byte SubArea : 0x29EE840, 0xB8, 0x5;
+	byte Progress : 0x29EE840, 0xB8, 0x6;
+	byte EnemyNo1 : 0x29EE840, 0x50, 0x0;
+	byte EnemyNo2 : 0x29EE840, 0x50, 0x4;
+	byte EnemyNo3 : 0x29EE840, 0x50, 0x8;
+	short EnemyNo1HP : 0x29F21F8, 0x20;
+	short EnemyNo2HP : 0x29F21F8, 0xE0;
+	short EnemyNo3HP : 0x29F21F8, 0x1A0;
+	byte Key_Hig_Memo : 0x29EE840, 0xB8, 0xF4;
+	byte Key_Lab_Memo : 0x29EE840, 0xB8, 0xF5;
+	byte Key_Yuri_Memo : 0x29EE840, 0xB8, 0xF6;
+	byte Key_Pa_Memo : 0x29EE840, 0xB8, 0xF7;
+	byte NewGameStart : 0x29EE840, 0xB8, 0x18;
+	byte PETDing : 0x29F3068, 0x634;  
+}
 
-	byte GameState : 0x29C9930, 0xB8, 0x0; // 28 on ng/continue select - 0 is hit when selecting "Return to Title Screen"
+state("MMBN_LC1", "Unknown Version") 
+{
+	byte GameState : 0x29C9930, 0xB8, 0x0;
 	byte MainArea : 0x29C9930, 0xB8, 0x4;
 	byte SubArea : 0x29C9930, 0xB8, 0x5;
 	byte Progress : 0x29C9930, 0xB8, 0x6;
@@ -114,36 +110,13 @@ state("MMBN_LC1", "14.04.23")
 	byte EnemyNo3 : 0x29C9930, 0x50, 0x8;
 	short EnemyNo1HP : 0x29CE2A8, 0x20;
 	short EnemyNo2HP : 0x29CE2A8, 0xE0;
-	short EnemyNo3HP : 0x229CE2A8, 0x1A0;
-	byte Key_Hig_Memo : 0x29C9930, 0xB8, 0xF4; // double check
-	byte Key_Lab_Memo : 0x29C9930, 0xB8, 0xF5; // double check
-	byte Key_Yuri_Memo : 0x29C9930, 0xB8, 0xF6; // double check
-	byte Key_Pa_Memo : 0x29C9930, 0xB8, 0xF7; // double check
-	byte NewGameStart : 0x29CA9EA; 
-	// short MMBN1_FinalSplit : 0x29F21F8, 0x4;
-	// FinalScene / FinalDing
-}
-
-state("MMBN_LC1", "Unknown Version") 
-{
-	byte GameState : 0x29EE840, 0xB8, 0x0; // 28 on ng/continue select - 0 is hit when selecting "Return to Title Screen"
-	byte MainArea : 0x29EE840, 0xB8, 0x4;
-	byte SubArea : 0x29EE840, 0xB8, 0x5;
-	byte Progress : 0x29EE840, 0xB8, 0x6;
-	// int KeyItems : 0x29EE840, 0xB8, 0xC0;
-	byte EnemyNo1 : 0x29EE840, 0x50, 0x0;
-	byte EnemyNo2 : 0x29EE840, 0x50, 0x4;
-	byte EnemyNo3 : 0x29EE840, 0x50, 0x8;
-	short EnemyNo1HP : 0x29F21F8, 0x60;
-	short EnemyNo2HP : 0x29F21F8, 0x110;
-	short EnemyNo3HP : 0x29F21F8, 0x1C0;
-	byte Key_Hig_Memo : 0x29EE840, 0xB8, 0xF4;
-	byte Key_Lab_Memo : 0x29EE840, 0xB8, 0xF5;
-	byte Key_Yuri_Memo : 0x29EE840, 0xB8, 0xF6;
-	byte Key_Pa_Memo : 0x29EE840, 0xB8, 0xF7;
-	// byte StartSound : 
-	// short MMBN1_FinalSplit : 0x29F21F8, 0x4;
-	// GameLoadingFlag / BattleState / StartSound / FinalScene / FinalDing
+	short EnemyNo3HP : 0x29CE2A8, 0x1A0;
+	byte Key_Hig_Memo : 0x29C9930, 0xB8, 0xF4;
+	byte Key_Lab_Memo : 0x29C9930, 0xB8, 0xF5;
+	byte Key_Yuri_Memo : 0x29C9930, 0xB8, 0xF6;
+	byte Key_Pa_Memo : 0x29C9930, 0xB8, 0xF7;
+	byte NewGameStart : 0x29C9930, 0xB8, 0x18;
+	byte PETDing : 0x29CE158, 0x634; 
 }
 
 startup
@@ -221,7 +194,17 @@ init
 			break;
 		default:
 			version = "Unknown Version";
-			break;
+			MessageBox.Show(timer.Form,
+                "Mega Man Battle Network Legacy Collection Vol.1 Autosplitter Error:\n\n"
+                + "This autosplitter does not support this game version.\n"
+                + "Please contact Nikoheart (@nikoheart on Discord)\n"
+                + "with the following MD5Hash string and mention the game has recently updated.\n\n"
+                + "MD5Hash: " + MD5Hash + "\n\n"
+                + "Defaulting to the most recent known memory addesses...",
+                  "Mega Man Battle Network Legacy Collection Vol.1 Autosplitter Error",
+                  MessageBoxButtons.OK,
+                  MessageBoxIcon.Error);
+            break;
 	}
 	
 	// current.GameState = 0;
@@ -245,7 +228,7 @@ init
 
 start
 {
-	return old.NewGameStart != current.NewGameStart && current.NewGameStart == 128;
+	return old.NewGameStart == 13 && current.NewGameStart == 255;
 }
 
 onStart

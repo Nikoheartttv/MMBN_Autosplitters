@@ -10,7 +10,7 @@
             <setting id="BN1SM_IceMan" name="IceMan" defaultValue="true" check="BossDefeated" value="114"  />
             <setting id="BN1SM_SkullMan" name="SkullMan" defaultValue="true" check="BossDefeated" value="117" />
             <setting id="BN1SM_ColorMan" name="ColorMan" defaultValue="true" check="BossDefeated" value="120" />
-            <setting id="BN1SM_ElecMan" name="ElecMan" defaultValue="true" check="BossDefeated" value="129" />
+            <setting id="BN1SM_ElecMan" name="ElecMan" defaultValue="false" check="BossDefeated" value="129" />
             <setting id="BN1SM_ProtoMan" name="ProtoMan" defaultValue="true" check="BossDefeated" value="99" />
             <setting id="BN1SM_Memos" name="Memos" defaultValue="true" check="Memos" value="" />
             <setting id="BN1SM_BombMan" name="BombMan" defaultValue="true" check="BossDefeated" value="123" />
