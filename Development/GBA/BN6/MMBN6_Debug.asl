@@ -64,8 +64,8 @@ init
         emu.Make<ushort>("EnemyNo1HP", 0x0203AAAC);
         emu.Make<ushort>("EnemyNo2HP", 0x0203AB84);
         emu.Make<ushort>("EnemyNo3HP", 0x0203AC5C);     
-        // emu.make<ushort>("CurrentConversation", 0x2009D04);
-        emu.Make<byte>("InConversationScene", 0x2009983);
+        // emu.make<short>("CurrentConversation", 0x2009D04);
+        // emu.Make<byte>("InConversationScene", 0x2009983);
         return true;
     });
 
@@ -88,6 +88,7 @@ onStart
 
 update
 {
+	// if (!vars.Helper.Update()) return false;
     if (vars.Helper["MainArea"].Changed) print("MainArea changed from " + vars.Helper["MainArea"].Old + " to " + vars.Helper["MainArea"].Current);
     if (vars.Helper["SubArea"].Changed) print("SubArea changed from " + vars.Helper["SubArea"].Old + " to " + vars.Helper["SubArea"].Current);
     if (vars.Helper["Progress"].Changed) print("Progress changed from " + vars.Helper["Progress"].Old + " to " + vars.Helper["Progress"].Current);
@@ -99,7 +100,7 @@ update
     if (vars.Helper["EnemyNo2HP"].Changed) print("EnemyNo2HP changed from " + vars.Helper["EnemyNo2HP"].Old + " to " + vars.Helper["EnemyNo2HP"].Current);
     if (vars.Helper["EnemyNo3HP"].Changed) print("EnemyNo3HP changed from " + vars.Helper["EnemyNo3HP"].Old + " to " + vars.Helper["EnemyNo3HP"].Current);
     // if (vars.Helper["CurrentConversation"].Changed) print("CurrentConversation changed from " + vars.Helper["CurrentConversation"].Old + " to " + vars.Helper["CurrentConversation"].Current);
-    if (vars.Helper["InConversationScene"].Changed) print("InConversationScene changed from " + vars.Helper["InConversationScene"].Old + " to " + vars.Helper["InConversationScene"].Current);
+    // if (vars.Helper["InConversationScene"].Changed) print("InConversationScene changed from " + vars.Helper["InConversationScene"].Old + " to " + vars.Helper["InConversationScene"].Current);
     
     if (!vars.HeatManDefeated && vars.CheckBossDefeated(257)) vars.HeatManDefeated = true;
 }
@@ -160,14 +161,25 @@ split
 							}
 						}
 						break;
-                    
-                    // case "HeatCross":
-                    //     if (vars.Helper["CurrentConversation"].Current == 64526 && vars.Helper["InConversationScene"].Old == 0 && vars.Helper["InConversationScene"].Current == 1)
-                    //     {
-                    //         print("Heat Cross Split");
-                    //         return true;
-                    //     }
-                    //     break;
+
+					case "HeatCross":
+						if (vars.Helper["MainArea"].Current == 2 && vars.Helper["SubArea"].Current == 9 && vars.Helper["EnemyNo1"].Current == 1 && 
+							vars.Helper["EnemyNo1HP"].Old > 0 && vars.Helper["EnemyNo1HP"].Current == 0)
+						{
+							print("Heat Cross Get");
+							vars.SplitOnExitBattle = true;
+						}
+						break;
+
+					case "MoonStone":
+						if (vars.Helper["Progress"].Current == 80 &&
+							vars.Helper["MainArea"].Old == 1 && vars.Helper["SubArea"].Old == 2 &&
+							vars.Helper["MainArea"].Current == 2 && vars.Helper["SubArea"].Current == 8)
+						{
+							print("MoonStone Split");
+							return true;
+						}
+						break;
 				}
 			}
 		}
@@ -184,4 +196,9 @@ split
 onSplit
 {
     print("===== SPLIT =====");
+}
+
+shutdown
+{
+	// vars.Helper.Dispose();
 }

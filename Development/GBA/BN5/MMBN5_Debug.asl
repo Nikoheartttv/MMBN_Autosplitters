@@ -93,12 +93,14 @@ update
     if (vars.Helper["EnemyNo1HP"].Changed) print("EnemyNo1HP changed from " + vars.Helper["EnemyNo1HP"].Old + " to " + vars.Helper["EnemyNo1HP"].Current);
     if (vars.Helper["EnemyNo2HP"].Changed) print("EnemyNo2HP changed from " + vars.Helper["EnemyNo2HP"].Old + " to " + vars.Helper["EnemyNo2HP"].Current);
     if (vars.Helper["EnemyNo3HP"].Changed) print("EnemyNo3HP changed from " + vars.Helper["EnemyNo3HP"].Old + " to " + vars.Helper["EnemyNo3HP"].Current);
+	if (vars.Helper["StartCheck"].Changed) print("StartCheck changed from " + vars.Helper["StartCheck"].Old + " to " + vars.Helper["StartCheck"].Current);
+
 }
 
 start
 {
 	if (vars.Helper == null || vars.Helper["StartCheck"] == null) return false;
-	return vars.Helper["StartCheck"].Old == 0 && vars.Helper["StartCheck"].Current == 128;
+	return vars.Helper["StartCheck"].Old == 0 && (vars.Helper["StartCheck"].Current == 128 || vars.Helper["StartCheck"].Current == 192);
 }
 
 onStart

@@ -251,42 +251,53 @@
             <setting id="BN4S_Duo" name="Duo" defaultValue="true" check="Duo" value="" />
         </setting>
     </setting>
-    <setting id="BN5C" name="Megaman Battle Network 5 Team Colonel">
-        <setting id="BN5CS" name="Splits" defaultValue="true">
-            <setting id="BN5CS_NoASE" name="Any% No ASE" defaultvalue="true">
-                <setting id="BN5CSNoASE_Colonel" name="Colonel" defaultValue="true" check="BossDefeated" value="293" />
-                <setting id="BN5CSNoASE_BlizzardMan" name="BlizzardMan" defaultValue="true" check="BossDefeated" value="335" />
-                <setting id="BN5CSNoASE_KnightMan" name="KnightMan" defaultValue="true" check="BossDefeated" value="317" />
-                <setting id="BN5CSNoASE_ShadeMan" name="ShadeMan" defaultValue="true" check="BossDefeated" value="329" />
-                <setting id="BN5CSNoASE_ShadowMan" name="ShadowMan" defaultValue="true" check="BossDefeated" value="299" />
-                <setting id="BN5CSNoASE_CloudMan" name="CloudMan" defaultValue="true" check="BossDefeated" value="341" />
-                <setting id="BN5CSNoASE_TomahawkMan" name="TomahawkMan" defaultValue="true" check="BossDefeated" value="311" />
-                <setting id="BN5CSNoASE_DarkMega" name="Dark Mega" defaultValue="true" check="BossDefeated" value="399" />
-                <setting id="BN5CSNoASE_NumberMan" name="NumberMan" defaultValue="true" check="BossDefeated" value="305" />
-                <setting id="BN5CSNoASE_CosmoMan" name="CosmoMan" defaultValue="true" check="BossDefeated" value="347" />
-                <setting id="BN5CSNoASE_ToadMan" name="ToadMan" defaultValue="true" check="BossDefeated" value="323" />
-                <setting id="BN5CSNoASE_DarkColonel" name="Dark Colonel" defaultValue="true" check="BossDefeated" value="294" />
-                <setting id="BN5CSNoASE_TeamRush" name="Team Rush" defaultValue="true" check="BossDefeated" value="300" />
-                <setting id="BN5CSNoASE_NebulaGray" name="Nebula Gray" defaultValue="true" check="BossDefeatedImmediate" value="371" />
+    <setting id="BN5" name="Megaman Battle Network 5">
+        <setting id="BN5S" name="Splits" defaultValue="true">
+            <setting id="BN5SC_NoASE" name="Any% No ASE (Colonel)" defaultvalue="true">
+                <setting id="BN5SCNoASE_Colonel" name="Colonel" defaultValue="true" check="BossDefeated" value="293" />
+                <setting id="BN5SCNoASE_BlizzardMan" name="BlizzardMan" defaultValue="true" check="BossDefeated" value="335" />
+                <setting id="BN5SCNoASE_KnightMan" name="KnightMan" defaultValue="true" check="BossDefeated" value="317" />
+                <setting id="BN5SCNoASE_ShadeMan" name="ShadeMan" defaultValue="true" check="BossDefeated" value="329" />
+                <setting id="BN5SCNoASE_ShadowMan" name="ShadowMan" defaultValue="true" check="BossDefeated" value="299" />
+                <setting id="BN5SCNoASE_CloudMan" name="CloudMan" defaultValue="true" check="BossDefeated" value="341" />
+                <setting id="BN5SCNoASE_TomahawkMan" name="TomahawkMan" defaultValue="true" check="BossDefeated" value="311" />
+                <setting id="BN5SCNoASE_DarkMega" name="Dark Mega" defaultValue="true" check="BossDefeated" value="399" />
+                <setting id="BN5SCNoASE_NumberMan" name="NumberMan" defaultValue="true" check="BossDefeated" value="305" />
+                <setting id="BN5SCNoASE_CosmoMan" name="CosmoMan" defaultValue="true" check="BossDefeated" value="347" />
+                <setting id="BN5SCNoASE_ToadMan" name="ToadMan" defaultValue="true" check="BossDefeated" value="323" />
+                <setting id="BN5SCNoASE_DarkColonel" name="Dark Colonel" defaultValue="true" check="BossDefeated" value="294" />
+                <setting id="BN5SCNoASE_TeamRush" name="Team Rush" defaultValue="true" check="BossDefeated" value="300" />
+                <setting id="BN5SCNoASE_NebulaGray" name="Nebula Gray" defaultValue="true" check="BossDefeatedImmediate" value="371" />
             </setting>
-            <setting id="BN5CS_Any" name="Any%" defaultValue="false">
-                <setting id="BN5CSAny_Colonel" name="Colonel" defaultValue="true" check="BossDefeated" value="293" />
-                <setting id="BN5CSAny_BlizzardMan" name="BlizzardMan" defaultValue="true" check="BossDefeated" value="335" />
-                <setting id="BN5CSAny_KnightMan" name="KnightMan" defaultValue="true" check="BossDefeated" value="317" />
-                <setting id="BN5CSAny_ShadeMan" name="ShadeMan" defaultValue="true" check="BossDefeated" value="329" />
-                <setting id="BN5CSAny_KnightManV2" name="KnightMan V2" defaultValue="true" check="BossDefeated" value="318" />
-                <setting id="BN5CSAny_KnightManV3" name="KnightMan V3" defaultValue="true" check="BossDefeated" value="319" />
-                <setting id="BN5CSAny_KnightManSP" name="KnightMan SP" defaultValue="true" check="BossDefeated" value="320" />
-                <setting id="BN5CSAny_LibWarpToShadowMan" name="Lib Warp to ShadowMan" defaultValue="true" />
-                <setting id="BN5CSAny_1050MaxHP" name="1050 Max HP" defaultValue="true" />
-                <setting id="BN5CSAny_Credits" name="Credits" defaultValue="true" />
-                <setting id="BN5CSAny_CreditsOver" name="Credits Over" defaultValue="true" />
+            <setting id="BN5SP_NoASE" name="Any% No ASE (ProtoMan)" defaultvalue="false">
+                <setting id="BN5SPNoASE_ProtoMan" name="ProtoMan" defaultValue="true" check="BossDefeated" value="257" />
+                <setting id="BN5SPNoASE_BlizzardMan" name="BlizzardMan" defaultValue="true" check="BossDefeated" value="335" />
+                <setting id="BN5SPNoASE_MagnetMan" name="MagnetMan" defaultValue="true" check="BossDefeated" value="281" />
+                <setting id="BN5SPNoASE_ShadeMan" name="ShadeMan" defaultValue="true" check="BossDefeated" value="329" />
+                <setting id="BN5SPNoASE_GyroMan" name="GyroMan" defaultValue="true" check="BossDefeated" value="263" />
+                <setting id="BN5SPNoASE_CloudMan" name="CloudMan" defaultValue="true" check="BossDefeated" value="341" />
+                <setting id="BN5SPNoASE_NapalmMan" name="NapalmMan" defaultValue="true" check="BossDefeated" value="275" />
+                <setting id="BN5SPNoASE_DarkMega" name="Dark Mega" defaultValue="true" check="BossDefeated" value="399" />
+                <setting id="BN5SPNoASE_SearchMan" name="SearchMan" defaultValue="true" check="BossDefeated" value="269" />
+                <setting id="BN5SPNoASE_CosmoMan" name="CosmoMan" defaultValue="true" check="BossDefeated" value="347" />
+                <setting id="BN5SPNoASE_Meddy" name="Meddy" defaultValue="true" check="BossDefeated" value="287" />
+                <setting id="BN5SPNoASE_DarkProto" name="Dark Proto" defaultValue="true" check="BossDefeated" value="258" />
+                <setting id="BN5SPNoASE_TeamRush" name="Team Rush" defaultValue="true" check="BossDefeated" value="300" />
+                <setting id="BN5SPNoASE_NebulaGray" name="Nebula Gray" defaultValue="true" check="BossDefeatedImmediate" value="371" />
             </setting>
-        </setting>
-    </setting>
-    <setting id="BN5P" name="Megaman Battle Network 5 ProtoMan">
-        <setting id="BN5PS" name="Splits" defaultValue="true">
-            <setting id="BN5PSM_Test" name="Test" defaultValue="true" />
+            <setting id="BN5SC_Any" name="Any% (Colonel)" defaultValue="false">
+                <setting id="BN5SCAny_Colonel" name="Colonel" defaultValue="true" check="BossDefeated" value="293" />
+                <setting id="BN5SCAny_BlizzardMan" name="BlizzardMan" defaultValue="true" check="BossDefeated" value="335" />
+                <setting id="BN5SCAny_KnightMan" name="KnightMan" defaultValue="true" check="BossDefeated" value="317" />
+                <setting id="BN5SCAny_ShadeMan" name="ShadeMan" defaultValue="true" check="BossDefeated" value="329" />
+                <setting id="BN5SCAny_KnightManV2" name="KnightMan V2" defaultValue="true" check="BossDefeated" value="318" />
+                <setting id="BN5SCAny_KnightManV3" name="KnightMan V3" defaultValue="true" check="BossDefeated" value="319" />
+                <setting id="BN5SCAny_KnightManSP" name="KnightMan SP" defaultValue="true" check="BossDefeated" value="320" />
+                <setting id="BN5SCAny_LibWarpToShadowMan" name="Lib Warp to ShadowMan" defaultValue="true" />
+                <setting id="BN5SCAny_1050MaxHP" name="1050 Max HP" defaultValue="true" check="MaxHP" value="1050" />
+                <setting id="BN5SCAny_Credits" name="Credits" defaultValue="true" />
+                <setting id="BN5SCAny_CreditsOver" name="Credits Over" defaultValue="true" />
+            </setting>
         </setting>
     </setting>
     <setting id="BN6F" name="Megaman Battle Network 6 Cybeast Falzar">
@@ -297,9 +308,9 @@
             <setting id="BN6FS_HeatCross" name="HeatCross" defaultValue="true" check="HeatCross" value="" />
             <setting id="BN6FS_CircusMan" name="CircusMan" defaultValue="true" check="BossDefeated" value="335" />
             <setting id="BN6FS_JudgeMan" name="JudgeMan" defaultValue="true" check="BossDefeated" value="341" />
-            <setting id="BN6FS_SkyGauntlets" name="Sky Gauntlets" defaultValue="true"  />
+            <setting id="BN6FS_SkyGauntlets" name="Sky Gauntlets" defaultValue="true" check="Progress" value="66" />
             <setting id="BN6FS_ElementMan" name="ElementMan" defaultValue="true" check="BossDefeated" value="347" />
-            <setting id="BN6FS_MoonStone" name="MoonStone" defaultValue="true"  />
+            <setting id="BN6FS_MoonStone" name="MoonStone" defaultValue="true" check="MoonStone" value="" />
             <setting id="BN6FS_DiveManEX" name="DiveMan EX" defaultValue="true" check="BossDefeated" value="330" />
             <setting id="BN6FS_Colonel" name="Colonel" defaultValue="true" check="BossDefeated" value="359" />
             <setting id="BN6FS_FinalDay" name="Final Day" defaultValue="true" check="Progress" value="98" />
@@ -314,9 +325,9 @@
             <setting id="BN6GS_HeatCross" name="HeatCross" defaultValue="true" check="HeatCross" value="" />
             <setting id="BN6GS_CircusMan" name="CircusMan" defaultValue="true" check="BossDefeated" value="335" />
             <setting id="BN6GS_JudgeMan" name="JudgeMan" defaultValue="true" check="BossDefeated" value="341" />
-            <setting id="BN6GS_SkyGauntlets" name="Sky Gauntlets" defaultValue="true"  />
+            <setting id="BN6GS_SkyGauntlets" name="Sky Gauntlets" defaultValue="true" check="Progress" value="66" />
             <setting id="BN6GS_ElementMan" name="ElementMan" defaultValue="true" check="BossDefeated" value="347" />
-            <setting id="BN6GS_MoonStone" name="MoonStone" defaultValue="true"  />
+            <setting id="BN6GS_MoonStone" name="MoonStone" defaultValue="true" check="MoonStone" value="" />
             <setting id="BN6GS_DiveManEX" name="DiveMan EX" defaultValue="true" check="BossDefeated" value="330" />
             <setting id="BN6GS_Colonel" name="Colonel" defaultValue="true" check="BossDefeated" value="359" />
             <setting id="BN6GS_FinalDay" name="Final Day" defaultValue="true" check="Progress" value="98" />
