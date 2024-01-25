@@ -9,7 +9,7 @@ state("MMBN_LC1", "30.10.23")
 	byte EnemyNo1 : 0x29C9930, 0x50, 0x0;
 	byte EnemyNo2 : 0x29C9930, 0x50, 0x4;
 	byte EnemyNo3 : 0x29C9930, 0x50, 0x8;
-    byte KeyItem_HeatData : 0x29F08F0, 0xB8, 0x134;
+    byte KeyItem_HeatData : 0x29C9930, 0xB8, 0x134;
 	short EnemyNo1HP : 0x29D0AE8, 0x24;
 	short EnemyNo2HP : 0x29D0AE8, 0xE4;
 	short EnemyNo3HP : 0x29D0AE8, 0x1A4;
@@ -26,7 +26,7 @@ state("MMBN_LC1", "13.10.23")
 	byte EnemyNo1 : 0x29C9930, 0x50, 0x0;
 	byte EnemyNo2 : 0x29C9930, 0x50, 0x4;
 	byte EnemyNo3 : 0x29C9930, 0x50, 0x8;
-    byte KeyItem_HeatData : 0x29F08F0, 0xB8, 0x134;
+    byte KeyItem_HeatData : 0x29C9930, 0xB8, 0x134;
 	short EnemyNo1HP : 0x29D0AE8, 0x24;
 	short EnemyNo2HP : 0x29D0AE8, 0xE4;
 	short EnemyNo3HP : 0x29D0AE8, 0x1A4;
@@ -60,13 +60,12 @@ state("MMBN_LC1", "04.07.23")
 	byte EnemyNo1 : 0x29F3940, 0x50, 0x0;
 	byte EnemyNo2 : 0x29F3940, 0x50, 0x4;
 	byte EnemyNo3 : 0x29F3940, 0x50, 0x8;
-    byte KeyItem_HeatData : 0x29F08F0, 0xB8, 0x134;
+    byte KeyItem_HeatData : 0x29F3940, 0xB8, 0x134;
 	short EnemyNo1HP : 0x29FAAF8, 0x24;
 	short EnemyNo2HP : 0x29FAAF8, 0xE4;
 	short EnemyNo3HP : 0x29FAAF8, 0x1A4;
 	byte NewGameStart : 0x29F3940, 0xB8, 0x18;
-	byte PETDing : 0x29F8168, 0x634;  
-
+	byte PETDing : 0x29F4608, 0x30, 0x148, 0x56C;
 }
 
 state("MMBN_LC1", "14.04.23") 
@@ -78,7 +77,7 @@ state("MMBN_LC1", "14.04.23")
 	byte EnemyNo1 : 0x29EE840, 0x50, 0x0;
 	byte EnemyNo2 : 0x29EE840, 0x50, 0x4;
 	byte EnemyNo3 : 0x29EE840, 0x50, 0x8;
-    byte KeyItem_HeatData : 0x29F08F0, 0xB8, 0x134;
+    byte KeyItem_HeatData : 0x29EE840, 0xB8, 0x134;
 	short EnemyNo1HP : 0x29F21F8, 0x24;
 	short EnemyNo2HP : 0x29F21F8, 0xE4;
 	short EnemyNo3HP : 0x29F21F8, 0x1A4;
@@ -95,7 +94,7 @@ state("MMBN_LC1", "Unknown Version")
 	byte EnemyNo1 : 0x29C9930, 0x50, 0x0;
 	byte EnemyNo2 : 0x29C9930, 0x50, 0x4;
 	byte EnemyNo3 : 0x29C9930, 0x50, 0x8;
-    byte KeyItem_HeatData : 0x29F08F0, 0xB8, 0x134;
+    byte KeyItem_HeatData : 0x29C9930, 0xB8, 0x134;
 	short EnemyNo1HP : 0x29CE2A8, 0x20;
 	short EnemyNo2HP : 0x29CE2A8, 0xE0;
 	short EnemyNo3HP : 0x29CE2A8, 0x1A0;
@@ -320,13 +319,16 @@ split
 
 					case "BossDefeated":
 						{
-							byte value = Byte.Parse(element.Attribute("value").Value);
-							if ((current.EnemyNo1 == value && current.EnemyNo1HP == 0 && old.EnemyNo1HP != 0) ||
-								(current.EnemyNo2 == value && current.EnemyNo2HP == 0 && old.EnemyNo2HP != 0) ||
-								(current.EnemyNo3 == value && current.EnemyNo3HP == 0 && old.EnemyNo3HP != 0))
+								byte value = Byte.Parse(element.Attribute("value").Value);
+								if (current.MainArea != 133 || value == 182)
 								{
-									print("Boss Defeated: " + element.Attribute("name").Value);
-									vars.SplitOnExitBattle = true;
+								if ((current.EnemyNo1 == value && current.EnemyNo1HP == 0 && old.EnemyNo1HP != 0) ||
+									(current.EnemyNo2 == value && current.EnemyNo2HP == 0 && old.EnemyNo2HP != 0) ||
+									(current.EnemyNo3 == value && current.EnemyNo3HP == 0 && old.EnemyNo3HP != 0))
+									{
+										print("Boss Defeated: " + element.Attribute("name").Value);
+										vars.SplitOnExitBattle = true;
+									}
 								}
 						}
 						break;
@@ -347,10 +349,10 @@ split
 							byte value = Byte.Parse(element.Attribute("value").Value);
 							if (current.MainArea == 133 && current.GameState == 8)
 							{
-								if (current.EnemyNo1 == value && old.EnemyNo1HP > 0 && current.EnemyNo1HP == 0)
+								if (current.EnemyNo1 == value && old.EnemyNo1HP != 0 && current.EnemyNo1HP == 0)
 								{
 									print("Boss Rush Defeated: " + element.Attribute("name").Value);
-									return true;
+									vars.SplitOnExitBattle = true;
 								}
 
 							}
@@ -371,13 +373,19 @@ split
 						{
 							if (current.Progress == 9 && current.MainArea == 144 && current.SubArea == 4)
 							{
-								if ((current.EnemyNo1 == 29 && old.EnemyNo1HP > 0 && current.EnemyNo1HP == 0) ||
-									(current.EnemyNo2 == 29 && old.EnemyNo2HP > 0 && current.EnemyNo2HP == 0) ||
-									(current.EnemyNo3 == 7 && old.EnemyNo3HP > 0 && current.EnemyNo3HP == 0))
+								// if ((current.EnemyNo1 == 29 && old.EnemyNo1HP > 0 && current.EnemyNo1HP == 0) ||
+								// 	(current.EnemyNo2 == 29 && old.EnemyNo2HP > 0 && current.EnemyNo2HP == 0) ||
+								// 	(current.EnemyNo3 == 7 && old.EnemyNo3HP > 0 && current.EnemyNo3HP == 0))
+								// {
+								// 	print("BLicense Split");
+								// 	vars.SplitOnExitBattle = true;
+								// }
+								if (current.EnemyNo1 == 29 && current.EnemyNo2 == 29 && current.EnemyNo3 == 7 &&
+									current.EnemyNo1HP == 0 && current.EnemyNo2HP == 0 && current.EnemyNo3HP == 0 &&
+									!(old.EnemyNo1HP == 0 && old.EnemyNo2HP == 0 && old.EnemyNo3HP == 0))
 								{
 									print("BLicense Split");
 									vars.SplitOnExitBattle = true;
-									
 								}
 							}
 						}
@@ -399,12 +407,19 @@ split
 						{
 							if (current.Progress == 19 && current.MainArea == 144 && current.SubArea == 4)
 							{
-								if ((current.EnemyNo1 == 69 && old.EnemyNo1HP > 0 && current.EnemyNo1HP == 0) ||
-									(current.EnemyNo2 == 38 && old.EnemyNo2HP > 0 && current.EnemyNo2HP == 0) ||
-									(current.EnemyNo3 == 24 && old.EnemyNo3HP > 0 && current.EnemyNo3HP == 0))
+								// if ((current.EnemyNo1 == 69 && old.EnemyNo1HP > 0 && current.EnemyNo1HP == 0) ||
+								// 	(current.EnemyNo2 == 38 && old.EnemyNo2HP > 0 && current.EnemyNo2HP == 0) ||
+								// 	(current.EnemyNo3 == 24 && old.EnemyNo3HP > 0 && current.EnemyNo3HP == 0))
+								// {
+								// 	print("ALicense Split");
+								// 	return true;
+								// }
+								if (current.EnemyNo1 == 69 && current.EnemyNo2 == 38 && current.EnemyNo3 == 24 &&
+									current.EnemyNo1HP == 0 && current.EnemyNo2HP == 0 && current.EnemyNo3HP == 0 &&
+									!(old.EnemyNo1HP == 0 && old.EnemyNo2HP == 0 && old.EnemyNo3HP == 0))
 								{
 									print("ALicense Split");
-									return true;
+									vars.SplitOnExitBattle = true;
 								}
 							}
 						}
@@ -444,7 +459,7 @@ split
     }
     else
     {
-        if (current.Progress == 84 && current.MainArea == 1 && current.SubArea == 0 && old.PETDing != current.PETDing && current.PETDing == 176)
+        if (current.Progress == 72 && current.MainArea == 2 && current.SubArea == 4 && old.PETDing == 4 && current.PETDing == 0)
         {
             print("Final Ding Split");
             return true;
